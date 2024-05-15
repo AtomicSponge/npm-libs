@@ -1,5 +1,7 @@
 # script-error
 
+### Function for displaying an error to console and optionally exiting
+
 Install to your existing project using:
 ```
 npm i @spongex/script-error
@@ -16,6 +18,8 @@ const { scriptError } = require('@spongex/script-error')
 ```
 
 # Usage
+
+### scriptError: (message:string, { exit?:boolean, code?:number }) => number
 
 ## Examples:
 

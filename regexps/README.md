@@ -1,5 +1,7 @@
 # regexps
 
+### Collection of regex tests
+
 Install to your existing project using:
 ```
 npm i @spongex/regexps
