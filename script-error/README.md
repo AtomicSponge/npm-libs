@@ -16,7 +16,23 @@ const { scriptError } = require('@spongex/script-error')
 ```
 
 # Usage
-...
+
+## Examples:
+
+Exit script with a code of 1:
+```
+scriptError('Something went wrong!')
+```
+
+Don't exit script and use a custom return code:
+```
+scriptError('Error handler', { exit: false, code: 100 })
+```
+
+End script with a custom error code:
+```
+scriptError('Something bad happened!', { code: 200 })
+```
 
 # Changelog
 
