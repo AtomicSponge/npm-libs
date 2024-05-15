@@ -5,17 +5,27 @@
  * @copyright MIT see LICENSE.md
  */
 
+interface scriptErrorOptions {
+  exit?:boolean
+  code?:number
+}
+
 /**
- * Display an error message and exit script.
- * @param message Message to display.
+ * Display an error message and optionally quit running
+ * @param message Message to display
+ * @param options Options for scriptError
+ * @param options.exit True to exit, false to return
+ * @param options.code Return code
+ * @returns Return code if script did not quit
  */
-export const scriptError = (message:string, exit = true, code = 1):number => {
+export const scriptError = (message:string, options?:scriptErrorOptions):number => {
+  const exit = options?.exit || true
+  const code = options?.code || 1
+
   if (exit) {
     console.error(`\x1b[31mError: ${message}  Exiting...\x1b[0m`)
     process.exit(code)
   }
-  else {
-    console.error(`\x1b[31mError: ${message}\x1b[0m`)
-    return code
-  }
+  console.error(`\x1b[31mError: ${message}\x1b[0m`)
+  return code
 }
