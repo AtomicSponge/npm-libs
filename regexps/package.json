@@ -1,22 +1,22 @@
 {
-  "name": "template",
+  "name": "@spongex/regexps",
   "version": "1.0.0",
   "description": "Desc",
-  "author": "author",
-  "license": "SEE LICENSE IN LICENSE.md",
-  "url": "https://www.npmjs.com/package/url",
-  "homepage": "https://github.com/org/repo#readme",
-  "main": "index.ts",
+  "author": "Matthew Evans",
+  "license": "MIT",
+  "url": "https://www.npmjs.com/@spongex/regexps",
+  "homepage": "https://github.com/AtomicSponge/regexps#readme",
+  "main": "./src/index.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/org/url",
-    "directory": "optional"
+    "url": "https://github.com/AtomicSponge/npm-libs",
+    "directory": "regexps"
   },
   "keywords": [
     "keywords"
   ],
   "bugs": {
-    "url": "https://github.com/org/url"
+    "url": "https://github.com/AtomicSponge/npm-libs/issues"
   },
   "scripts": {
     "build": "unbuild",

@@ -26,6 +26,7 @@ export const scriptError = (message:string, options?:scriptErrorOptions):number 
     console.error(`\x1b[31mError: ${message}  Exiting...\x1b[0m`)
     process.exit(code)
   }
+
   console.error(`\x1b[31mError: ${message}\x1b[0m`)
   return code
 }
