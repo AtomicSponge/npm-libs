@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/AtomicSponge/npm-libs",
+    "url": "git+https://github.com/AtomicSponge/npm-libs.git",
     "directory": "regexps"
   },
   "url": "https://www.npmjs.com/@spongex/regexps",
