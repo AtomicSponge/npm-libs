@@ -24,7 +24,7 @@ Returns true if valid, else false.
 const res = testHexColor('#FF00FF')
 ```
 
-### testRgb: (str:string) => boolean
+### testRGB: (str:string) => boolean
 Test if a valid RGB(a) or HSL(a) value.
 Returns true if valid, else false.
 ```

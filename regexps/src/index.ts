@@ -20,7 +20,7 @@ export const testHexColor = (str:string):boolean => {
  * @param str String to test
  * @returns True if valid, else false
  */
-export const testRgb = (str:string):boolean => {
+export const testRGB = (str:string):boolean => {
   return /^(rgb|hsl)a?\((-?\d+%?[,\s]+){2,3}\s*[\d\.]+%?\)$/i.test(str)
 }
 
