@@ -19,7 +19,7 @@ const { scriptError } = require('@spongex/script-error')
 
 # Usage
 
-### scriptError: (message:string, { exit?:boolean, code?:number }) => number
+### scriptError: (message: string, { exit?: boolean, code?: number }) => number
 
 ## Examples:
 
