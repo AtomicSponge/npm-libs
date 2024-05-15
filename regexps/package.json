@@ -1,7 +1,7 @@
 {
   "name": "@spongex/regexps",
   "version": "1.0.0",
-  "description": "Desc",
+  "description": "Collection of regexps",
   "author": "Matthew Evans",
   "license": "MIT",
   "url": "https://www.npmjs.com/@spongex/regexps",
@@ -13,7 +13,9 @@
     "directory": "regexps"
   },
   "keywords": [
-    "keywords"
+    "regex",
+    "regexps",
+    "tests"
   ],
   "bugs": {
     "url": "https://github.com/AtomicSponge/npm-libs/issues"

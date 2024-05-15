@@ -1,7 +1,7 @@
 {
   "name": "@spongex/script-error",
   "version": "1.0.0",
-  "description": "Desc",
+  "description": "Function for handling script errors",
   "author": "Matthew Evans",
   "license": "MIT",
   "url": "https://www.npmjs.com/package/@spongex/script-error",

@@ -1,5 +1,20 @@
 # script-error
 
+Install to your existing project using:
+```
+npm i @spongex/script-error
+```
+
+Include module:
+```
+import { scriptError } from '@spongex/script-error'
+```
+
+Include CommonJS:
+```
+const { scriptError } = require('@spongex/script-error')
+```
+
 # Changelog
 
 ## 1.0.0
