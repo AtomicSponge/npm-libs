@@ -1,6 +1,7 @@
 # script-error
 
 ### Function for displaying an error to console and optionally exiting
+Also formats text in red
 
 Install to your existing project using:
 ```
