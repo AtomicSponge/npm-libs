@@ -1,6 +1,6 @@
 # NPM Libraries
 
-A collection of small NPM libraries.
+### A collection of small NPM libraries.
 
 ## regexps
 Collection of regex tests
