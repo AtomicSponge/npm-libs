@@ -19,14 +19,20 @@ interface scriptErrorOptions {
  * @returns Return code if script did not quit
  */
 export const scriptError = (message:string, options?:scriptErrorOptions):number => {
-  const exit = options?.exit || true
-  const code = options?.code || 1
+  const _exit = (() => {
+    if(options?.exit === undefined) return true
+    else return options.exit
+  })()
+  const _code = (() => {
+    if(options?.code === undefined) return 1
+    else return options.code
+  })()
 
-  if (exit) {
+  if (_exit) {
     console.error(`\x1b[31mError: ${message}  Exiting...\x1b[0m`)
-    process.exit(code)
+    process.exit(_code)
+  } else {
+    console.error(`\x1b[31mError: ${message}\x1b[0m`)
+    return _code
   }
-
-  console.error(`\x1b[31mError: ${message}\x1b[0m`)
-  return code
 }
