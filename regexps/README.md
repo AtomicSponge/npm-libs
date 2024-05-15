@@ -15,8 +15,19 @@ Include CommonJS:
 const { testAlpha } = require('@spongex/regexps')
 ```
 
-# Usage
-...
+# API Reference
+
+## testHexColor
+
+## testRgb
+
+## testPixel
+
+## testAlpha
+
+## testNumeric
+
+## testAlphaNumeric
 
 # Changelog
 
