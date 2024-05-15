@@ -15,6 +15,9 @@ Include CommonJS:
 const { scriptError } = require('@spongex/script-error')
 ```
 
+# Usage
+...
+
 # Changelog
 
 ## 1.0.0

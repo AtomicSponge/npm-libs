@@ -15,6 +15,9 @@ Include CommonJS:
 const { testAlpha } = require('@spongex/regexps')
 ```
 
+# Usage
+...
+
 # Changelog
 
 ## 1.0.0
