@@ -5,7 +5,7 @@ Install to your existing project using:
 npm i @spongex/script-error
 ```
 
-Include module:
+Include ECMAScript:
 ```
 import { scriptError } from '@spongex/script-error'
 ```

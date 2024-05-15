@@ -5,7 +5,7 @@ Install to your existing project using:
 npm i @spongex/regexps
 ```
 
-Include module:
+Include ECMAScript:
 ```
 import { testHexColor } from '@spongex/regexps
 ```
