@@ -3,5 +3,5 @@
 node_modules
 src
 
-index.ts
+package-lock.json
 tsconfig.json
