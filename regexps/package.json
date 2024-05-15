@@ -5,7 +5,7 @@
   "author": "Matthew Evans",
   "license": "MIT",
   "url": "https://www.npmjs.com/@spongex/regexps",
-  "homepage": "https://github.com/AtomicSponge/regexps#readme",
+  "homepage": "https://github.com/AtomicSponge/npm-libs#readme",
   "main": "./src/index.ts",
   "repository": {
     "type": "git",

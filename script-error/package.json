@@ -5,7 +5,7 @@
   "author": "Matthew Evans",
   "license": "MIT",
   "url": "https://www.npmjs.com/package/@spongex/script-error",
-  "homepage": "https://github.com/AtomicSponge/script-error#readme",
+  "homepage": "https://github.com/AtomicSponge/npm-libs#readme",
   "main": "./src/index.ts",
   "repository": {
     "type": "git",
@@ -13,7 +13,9 @@
     "directory": "script-error"
   },
   "keywords": [
-    "keywords"
+    "script",
+    "error",
+    "handler"
   ],
   "bugs": {
     "url": "https://github.com/AtomicSponge/npm-libs/issues"
