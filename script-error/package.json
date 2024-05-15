@@ -4,14 +4,13 @@
   "description": "Function for handling script errors",
   "author": "Matthew Evans",
   "license": "MIT",
-  "url": "https://www.npmjs.com/package/@spongex/script-error",
-  "homepage": "https://github.com/AtomicSponge/npm-libs#readme",
-  "main": "./src/index.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/AtomicSponge/npm-libs",
     "directory": "script-error"
   },
+  "url": "https://www.npmjs.com/package/@spongex/script-error",
+  "homepage": "https://github.com/AtomicSponge/npm-libs#readme",
   "keywords": [
     "script",
     "error",
@@ -20,6 +19,7 @@
   "bugs": {
     "url": "https://github.com/AtomicSponge/npm-libs/issues"
   },
+  "main": "./src/index.ts",
   "scripts": {
     "build": "unbuild",
     "prepublishOnly": "unbuild"
