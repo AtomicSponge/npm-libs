@@ -17,17 +17,17 @@ const { testAlpha } = require('@spongex/regexps')
 
 # API Reference
 
-## testHexColor
+### testHexColor
 
-## testRgb
+### testRgb
 
-## testPixel
+### testPixel
 
-## testAlpha
+### testAlpha
 
-## testNumeric
+### testNumeric
 
-## testAlphaNumeric
+### testAlphaNumeric
 
 # Changelog
 
