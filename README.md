@@ -3,6 +3,9 @@
 ### A collection of small NPM libraries.
 Mostly with zero dependencies!
 
+## async-for-each
+Async version of the forEach function
+
 ## regexps
 Collection of regex tests
 
