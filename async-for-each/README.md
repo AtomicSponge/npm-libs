@@ -34,5 +34,8 @@ asyncForEach(collection, async (item) => {
 
 # Changelog
 
+## 1.0.1
+- Comment error, quick fix
+
 ## 1.0.0
 - Initial release
