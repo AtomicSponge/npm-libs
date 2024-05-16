@@ -20,7 +20,7 @@ const { asyncForEach } = require('@spongex/async-for-each')
 
 # Usage
 
-### asyncForEach: async (array:Array<any>, callback:Function) => Promise<void>
+### asyncForEach: async (array: Array<any>, callback: Function) => Promise<void>
 
 ## Example:
 
