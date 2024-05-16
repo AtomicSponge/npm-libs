@@ -1,6 +1,6 @@
 /**
  * @author Matthew Evans
- * @module template
+ * @module @spongex/async-for-each
  * @see README.md
  * @copyright MIT see LICENSE.md
  */
