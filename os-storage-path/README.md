@@ -9,11 +9,10 @@ Also performs a verification that the location exists.
 If a path can be found, `__os_storage_path` will be set to its value.
 If no path is found it will contain *null*.
 
-For example, on Windows it will be: `c:\users\username\AppData\Local`
-
-For Mac: `/home/username/Library/Preferences`
-
-For Linux and other OSes: `/home/username/.local/share`
+Example locations:
+- Windows: `c:\users\username\AppData\Local`
+- Mac: `/home/username/Library/Preferences`
+- Linux & other OSes: `/home/username/.local/share`
 
 Install to your existing project using:
 ```
