@@ -28,8 +28,6 @@ Include CommonJS:
 const { __os_storage_path } = require('@spongex/os_storage_path')
 ```
 
-# Changelog
-
 ## Usage
 ```
 if(__os_storage_path !== null) {
@@ -38,6 +36,8 @@ if(__os_storage_path !== null) {
   fs.writeFileSync(path.join(__os_storage_path, 'my-app-name', 'settings.json'), data)
 }
 ```
+
+# Changelog
 
 ## 1.0.0
 - Initial release
