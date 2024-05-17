@@ -2,7 +2,7 @@
 
 ## WIP - needs testing
 
-Get application storage location based on operating system
+### Get application storage location based on operating system
 
 Install to your existing project using:
 ```
