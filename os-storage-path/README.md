@@ -30,6 +30,7 @@ const { __os_storage_path } = require('@spongex/os_storage_path')
 
 ## Usage
 ```
+//  Make sure the value is not null
 if(__os_storage_path !== null) {
   console.log(__os_storage_path)  //  Write it to console
   //  Or use it to store some data
