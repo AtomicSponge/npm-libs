@@ -44,5 +44,5 @@ if(__os_storage_path !== null) {
 
 # Changelog
 
-## 1.0.0
+## 0.1.0
 - Initial release
