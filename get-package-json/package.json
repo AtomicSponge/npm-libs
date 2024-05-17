@@ -1,0 +1,43 @@
+{
+  "name": "@spongex/get-package-json",
+  "version": "1.0.0",
+  "description": "Get the project's package data in an object",
+  "author": "Matthew Evans",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomicSponge/npm-libs.git",
+    "directory": "get-package-json"
+  },
+  "url": "https://www.npmjs.com/package/@spongex/get-package-json",
+  "homepage": "https://github.com/AtomicSponge/npm-libs#readme",
+  "keywords": [
+    "keywords"
+  ],
+  "bugs": {
+    "url": "https://github.com/AtomicSponge/npm-libs/issues"
+  },
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "unbuild",
+    "prepublishOnly": "unbuild"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "./dist",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "typescript": "^5.4.5",
+    "unbuild": "^2.0.0"
+  }
+}
