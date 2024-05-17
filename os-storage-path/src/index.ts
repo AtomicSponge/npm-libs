@@ -48,6 +48,6 @@ export const __os_storage_path = (():string | null => {
       platform.includes('netbsd')) {
     return testLocation(path.join(process.env.HOME, '.local', 'share'))
   }
-  //  Nothing found
-  return null
+  //  Nothing found, try .local/share or give up
+  return testLocation(path.join(process.env.HOME, '.local', 'share'))
 })()
