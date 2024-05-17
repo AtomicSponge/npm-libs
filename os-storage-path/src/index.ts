@@ -8,17 +8,23 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-/** Application storage location based on operating system */
+/**
+ * Application storage location based on operating system
+ * Will try to determine this by available global variables
+ * Also performs a verification that the location exists
+ * If a path can be found, __os_storage_path will be set to its value
+ * If no path is found it will contain null
+ */
 export const __os_storage_path = (():string | null => {
-  if (process.env.LOCALAPPDATA) return process.env.LOCALAPPDATA
-  if (!process.platform || !process.env.HOME) return null
-
-  const platform = process.platform.toLowerCase()
-
   const testLocation = (location:string):string | null => {
     if (fs.existsSync(location)) return location
     else return null
   }
+
+  if (process.env.LOCALAPPDATA) return testLocation(process.env.LOCALAPPDATA)
+  if (!process.platform || !process.env.HOME) return null
+
+  const platform = process.platform.toLowerCase()
 
   //  Windows
   if (platform.includes('win32') || platform.includes('win64')) {

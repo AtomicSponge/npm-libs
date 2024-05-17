@@ -1,8 +1,13 @@
-#  npm-lib-template
+#  os-storage-path
 
 ## WIP - needs testing
 
 ### Get application storage location based on operating system
+
+Will try to determine this by available global variables.
+Also performs a verification that the location exists.
+If a path can be found, __os_storage_path will be set to its value.
+If no path is found it will contain null.
 
 Install to your existing project using:
 ```
