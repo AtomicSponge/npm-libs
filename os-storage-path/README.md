@@ -25,5 +25,14 @@ const { __os_storage_path } = require('@spongex/os_storage_path')
 
 # Changelog
 
+## Usage
+```
+if(__os_storage_path !== null) {
+  console.log(__os_storage_path)
+
+  fs.writeFileSync(path.join(__os_storage_path, 'my-app-name', 'settings.json'), data)
+}
+```
+
 ## 1.0.0
 - Initial release
