@@ -10,7 +10,7 @@ If a path can be found, `__os_appdata_path` will be set to its value.
 If no path is found it will contain *null*.
 
 If `process.env.LOCALAPPDATA` exists, then `__os_appdata_path` will be set to this value.
-Otherwise, it attempts to locate by using `process.env.HOME` and common OS paths.
+Otherwise, it attempts to locate by joining `process.platform` and `process.env.HOME` with common OS paths.
 
 Example locations:
 - Windows: `c:\users\username\AppData\Local`
