@@ -9,6 +9,9 @@ Also performs a verification that the location exists.
 If a path can be found, `__os_appdata_path` will be set to its value.
 If no path is found it will contain *null*.
 
+If `process.env.LOCALAPPDATA` exists, then `__os_appdata_path` will be set to this value.
+Otherwise, it attempts to locate by using `process.env.HOME` and common OS paths.
+
 Example locations:
 - Windows: `c:\users\username\AppData\Local`
 - Mac: `/home/username/Library/Preferences`
@@ -30,6 +33,7 @@ const { __os_appdata_path } = require('@spongex/os_appdata_path')
 
 ## Usage
 ```
+
 //  Make sure the value is not null
 if(__os_appdata_path !== null) {
   console.log(__os_appdata_path)  //  Write it to console
