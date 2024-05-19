@@ -1,7 +1,7 @@
 /**
  * 
  * @author Matthew Evans
- * @module resolver
+ * @module @spongex/async-resolver
  * @see README.md
  * @copyright MIT see LICENSE.md
  * 
@@ -11,7 +11,7 @@
  * Wrapper to Promise class to access functions
  * Used for waiting to receive asynchronous data
  */
-export class Resolver {
+export class AsyncResolver {
   /** Promise object */
   promise:Promise<any>
   /** Reject the resolver */

@@ -1,5 +1,5 @@
 {
-  "name": "@spongex/resolver",
+  "name": "@spongex/async-resolver",
   "version": "1.0.0",
   "description": "Await for asynchronous data",
   "author": "Matthew Evans",
@@ -7,9 +7,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AtomicSponge/npm-libs.git",
-    "directory": "resolver"
+    "directory": "async-resolver"
   },
-  "url": "https://www.npmjs.com/package/@spongex/resolver",
+  "url": "https://www.npmjs.com/package/@spongex/async-resolver",
   "homepage": "https://github.com/AtomicSponge/npm-libs#readme",
   "keywords": [
     "data",

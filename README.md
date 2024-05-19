@@ -6,11 +6,11 @@ Mostly with zero dependencies!
 ## async-for-each
 Async version of the forEach function
 
+## async-resolver
+Await for asynchronous data
+
 ## regexps
 Collection of regex tests
-
-## resolver
-Await for asynchronous data
 
 ## script-error
 Function for displaying an error to console and optionally exiting

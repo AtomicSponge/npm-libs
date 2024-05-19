@@ -1,27 +1,27 @@
-#  Resolver Class
+#  Async Resolver Class
 
 ### Await for asynchronous data
 
 Install to your existing project using:
 ```
-npm i @spongex/resolver
+npm i @spongex/async-resolver
 ```
 
 Include ECMAScript:
 ```
-import { Resolver } from '@spongex/resolver
+import { AsyncResolver } from '@spongex/async-resolver
 ```
 
 Include CommonJS:
 ```
-const { Resolver } = require('@spongex/resolver')
+const { AsyncResolver } = require('@spongex/async-resolver')
 ```
 
 # Usage
 
 First create a new resolver object:
 ```
-let myResolver = new Resolver()
+let myResolver = new AsyncResolver()
 ```
 
 Start an asynchronous process, then await the promise to be resolved or rejected.
