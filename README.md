@@ -9,6 +9,9 @@ Async version of the forEach function
 ## async-resolver
 Await for asynchronous data
 
+## os-appdata-path
+Get application storage location based on operating system
+
 ## regexps
 Collection of regex tests
 

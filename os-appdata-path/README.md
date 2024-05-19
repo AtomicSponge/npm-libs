@@ -19,6 +19,7 @@ Example locations:
 
 Install to your existing project using:
 ```
+npm i @spongex/os-appdata-path
 ```
 
 Include ECMAScript:
@@ -50,3 +51,4 @@ if(__os_appdata_path !== null) {
 
 ## 0.1.0
 - Initial release
+- Not tested on all OSes, but if the folder does not exist this will be *null* regardless
