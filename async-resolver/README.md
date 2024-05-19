@@ -9,7 +9,7 @@ npm i @spongex/async-resolver
 
 Include ECMAScript:
 ```
-import { AsyncResolver } from '@spongex/async-resolver
+import { AsyncResolver } from '@spongex/async-resolver'
 ```
 
 Include CommonJS:
