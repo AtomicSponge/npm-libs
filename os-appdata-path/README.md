@@ -1,13 +1,13 @@
 #  os-appdata-path
 
-## WIP - needs testing
-
 ### Get application storage location based on operating system
 
 Will try to determine this by available global variables.
 Also performs a verification that the location exists.
 If a path can be found, `__os_appdata_path` will be set to its value.
 If no path is found it will contain *null*.
+
+Not tested on all OSes, but if the folder does not exist this will be *null* regardless.
 
 If `process.env.LOCALAPPDATA` exists, then `__os_appdata_path` will be set to this value.
 Otherwise, it attempts to locate by joining `process.platform` and `process.env.HOME` with common OS paths.
@@ -51,4 +51,3 @@ if(__os_appdata_path !== null) {
 
 ## 0.1.0
 - Initial release
-- Not tested on all OSes, but if the folder does not exist this will be *null* regardless
