@@ -1,5 +1,5 @@
 {
-  "name": "@spongex/os-storage-path",
+  "name": "@spongex/os-appdata-path",
   "version": "0.1.0",
   "description": "Get application storage location based on operating system",
   "author": "Matthew Evans",
@@ -7,9 +7,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AtomicSponge/npm-libs.git",
-    "directory": "os-storage-path"
+    "directory": "os-appdata-path"
   },
-  "url": "https://www.npmjs.com/package/@spongex/os-storage-path",
+  "url": "https://www.npmjs.com/package/@spongex/os-appdata-path",
   "homepage": "https://github.com/AtomicSponge/npm-libs#readme",
   "keywords": [
     "keywords"

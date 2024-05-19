@@ -1,4 +1,4 @@
-#  os-storage-path
+#  os-appdata-path
 
 ## WIP - needs testing
 
@@ -6,7 +6,7 @@
 
 Will try to determine this by available global variables.
 Also performs a verification that the location exists.
-If a path can be found, `__os_storage_path` will be set to its value.
+If a path can be found, `__os_appdata_path` will be set to its value.
 If no path is found it will contain *null*.
 
 Example locations:
@@ -20,23 +20,23 @@ Install to your existing project using:
 
 Include ECMAScript:
 ```
-import { __os_storage_path } from '@spongex/os_storage_path
+import { __os_appdata_path } from '@spongex/os_appdata_path
 ```
 
 Include CommonJS:
 ```
-const { __os_storage_path } = require('@spongex/os_storage_path')
+const { __os_appdata_path } = require('@spongex/os_appdata_path')
 ```
 
 ## Usage
 ```
 //  Make sure the value is not null
-if(__os_storage_path !== null) {
-  console.log(__os_storage_path)  //  Write it to console
+if(__os_appdata_path !== null) {
+  console.log(__os_appdata_path)  //  Write it to console
 
   //  Use it to store some data
   fs.writeFileSync(
-    path.join(__os_storage_path, 'my-app-name', 'settings.json'),
+    path.join(__os_appdata_path, 'my-app-name', 'settings.json'),
     data
   )
 }

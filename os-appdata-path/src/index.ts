@@ -1,6 +1,6 @@
 /**
  * @author Matthew Evans
- * @module @spongex/os-storage-path
+ * @module @spongex/os-appdata-path
  * @see README.md
  * @copyright MIT see LICENSE.md
  */
@@ -12,10 +12,10 @@ import path from 'node:path'
  * Application storage location based on operating system
  * Will try to determine this by available global variables
  * Also performs a verification that the location exists
- * If a path can be found, __os_storage_path will be set to its value
+ * If a path can be found, __os_appdata_path will be set to its value
  * If no path is found it will contain null
  */
-export const __os_storage_path = (():string | null => {
+export const __os_appdata_path = (():string | null => {
   const testLocation = (location:string):string | null => {
     if (fs.existsSync(location)) return location
     else return null
