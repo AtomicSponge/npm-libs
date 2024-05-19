@@ -9,5 +9,8 @@ Async version of the forEach function
 ## regexps
 Collection of regex tests
 
+## resolver
+Await for asynchronous data
+
 ## script-error
 Function for displaying an error to console and optionally exiting
