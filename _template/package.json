@@ -9,7 +9,7 @@
     "url": "git+https://github.com/AtomicSponge/npm-libs.git",
     "directory": "optional"
   },
-  "url": "https://www.npmjs.com/package/url",
+  "url": "https://www.npmjs.com/package/@spongex/template",
   "homepage": "https://github.com/AtomicSponge/npm-libs#readme",
   "keywords": [
     "keywords"
