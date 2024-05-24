@@ -46,8 +46,8 @@ export const __os_appdata_path = (():string | null => {
       platform.includes('openbsd') ||
       platform.includes('sunos') ||
       platform.includes('netbsd')) {
-    return testLocation(path.join(process.env.HOME, '.local', 'share'))
+    return testLocation(path.join(process.env.HOME, '.config'))
   }
-  //  Nothing found, try .local/share or give up
-  return testLocation(path.join(process.env.HOME, '.local', 'share'))
+  //  Platform not found, try ~/.config or give up
+  return testLocation(path.join(process.env.HOME, '.config'))
 })()

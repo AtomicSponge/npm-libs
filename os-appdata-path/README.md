@@ -15,7 +15,7 @@ Otherwise, it attempts to locate by joining `process.platform` and `process.env.
 Example locations:
 - Windows: `c:\users\username\AppData\Local`
 - Mac: `/home/username/Library/Preferences`
-- Linux & other OSes: `/home/username/.local/share`
+- Linux & other OSes: `/home/username/.config`
 
 Install to your existing project using:
 ```
@@ -48,6 +48,9 @@ if(__os_appdata_path !== null) {
 ```
 
 # Changelog
+
+## 0.2.0
+- Updatad Linux & other OSes path from `/home/username/.local/share` to `/home/username/.config`
 
 ## 0.1.0
 - Initial release
