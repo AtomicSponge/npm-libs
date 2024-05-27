@@ -37,3 +37,8 @@ Function for displaying an error to console and optionally exiting
 Get the System Locale
 
 <sub>[link](https://github.com/AtomicSponge/npm-libs/tree/master/system-locale)</sub>
+
+## vue-image-zoom
+Vue3 Component for click to zoom on images
+
+<sub>[link](https://github.com/AtomicSponge/npm-libs/tree/master/vue-image-zoom)</sub>
