@@ -25,7 +25,7 @@ const { ImageZoom } = require('@spongex/vue-image-zoom')
 
 #### Properties
 - `id` *(optional)* HTML Element ID
-- `src` *(required)* URL to image source
+- `src` *__(required)__* URL to image source
 - `alt` *(optional)* Alternate text for image
 - `width` *(optional)* Width of document image
 - `height` *(optional)* Height of document image
