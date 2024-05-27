@@ -24,12 +24,12 @@ const { ImageZoom } = require('@spongex/vue-image-zoom')
 ### <ImageZoom src="/img/myImage.png" width="100" caption="An example"/>
 
 #### Properties
-`id` *(optional)* HTML Element ID
-`src` *(required)* URL to image source
-`alt` *(optional)* Alternate text for image
-`width` *(optional)* Width of document image
-`height` *(optional)* Height of document image
-`caption` *(optional)* Caption for modal display
+- `id` *(optional)* HTML Element ID
+- `src` *(required)* URL to image source
+- `alt` *(optional)* Alternate text for image
+- `width` *(optional)* Width of document image
+- `height` *(optional)* Height of document image
+- `caption` *(optional)* Caption for modal display
 
 # Changelog
 
