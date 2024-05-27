@@ -6,34 +6,34 @@ Mostly with zero dependencies!
 ## async-for-each
 Async version of the forEach function
 
-[link](https://github.com/AtomicSponge/npm-libs/tree/master/async-for-each)
+<sub>[link](https://github.com/AtomicSponge/npm-libs/tree/master/async-for-each)</sub>
 
 ## async-resolver
 Await for asynchronous data
 
-[link](https://github.com/AtomicSponge/npm-libs/tree/master/async-resolver)
+<sub>[link](https://github.com/AtomicSponge/npm-libs/tree/master/async-resolver)</sub>
 
 ## check-github-releases
 Check a GitHub Releases via the API and parse download links
 
-[link](https://github.com/AtomicSponge/npm-libs/tree/master/check-github-releases)
+<sub>[link](https://github.com/AtomicSponge/npm-libs/tree/master/check-github-releases)</sub>
 
 ## os-appdata-path
 Get application storage location based on operating system
 
-[link](https://github.com/AtomicSponge/npm-libs/tree/master/os-appdata-path)
+<sub>[link](https://github.com/AtomicSponge/npm-libs/tree/master/os-appdata-path)</sub>
 
 ## regexps
 Collection of regex tests
 
-[link](https://github.com/AtomicSponge/npm-libs/tree/master/regexps)
+<sub>[link](https://github.com/AtomicSponge/npm-libs/tree/master/regexps)</sub>
 
 ## script-error
 Function for displaying an error to console and optionally exiting
 
-[link](https://github.com/AtomicSponge/npm-libs/tree/master/script-error)
+<sub>[link](https://github.com/AtomicSponge/npm-libs/tree/master/script-error)</sub>
 
 ## system-locale
 Get the System Locale
 
-[link](https://github.com/AtomicSponge/npm-libs/tree/master/system-locale)
+<sub>[link](https://github.com/AtomicSponge/npm-libs/tree/master/system-locale)</sub>
