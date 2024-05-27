@@ -9,6 +9,9 @@ Async version of the forEach function
 ## async-resolver
 Await for asynchronous data
 
+## check-github-releases
+Check a GitHub Releases via the API and parse download links
+
 ## os-appdata-path
 Get application storage location based on operating system
 
