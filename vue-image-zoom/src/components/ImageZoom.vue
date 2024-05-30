@@ -45,7 +45,7 @@ const zoomOut = () => {
   <img :id :src :alt :width :height class="mainImg" @click="zoomIn()">
   <div v-show="_showModal" class="modal" @click="zoomOut()">
     <img :src :alt :class="_modalName">
-    <div v-show="caption" id="caption">{{ caption }}</div>
+    <div v-show="caption" class="caption">{{ caption }}</div>
   </div>
 </template>
 
@@ -55,21 +55,22 @@ const zoomOut = () => {
   transition 0.3s
 .mainImg:hover
   opacity 0.7
-#caption
+.caption
   margin auto
   display block
   width 80%
   max-width 700px
   text-align center
   color rgb(204, 204, 204)
+  font-size 1.2em
+  font-weight 800
   padding 10px 0
-  height rgb(27, 25, 25)
 .modal
   position fixed
   z-index 99
-  padding-top 20px
   left 0
   top 0
+  padding 10px 0
   width 100%
   height 100%
   overflow auto
@@ -77,9 +78,9 @@ const zoomOut = () => {
 .modal-content
   margin auto
   display block
-  width 90%
-  max-width 90%
-  max-height 90%
+  height 94%
+  max-width 94%
+  max-height 94%
 
 /* Zoom in */
 @-webkit-keyframes zoom
@@ -107,6 +108,10 @@ const zoomOut = () => {
   animation-duration 0.6s
 @media only screen and (max-width: 700px)
   .modal-content
+    margin auto
+    display block
     width 100%
+    height: auto
     max-width 100%
+    max-height 100%
 </style>
