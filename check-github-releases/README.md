@@ -45,5 +45,11 @@ The `URLAsset` is an object with the following format:
 
 # Changelog
 
+## 1.1.0
+- Added the following extentions to Mac:
+  - `pkg`, `mas`, `mas-dev`
+- Added the following extentions to Linux:
+  - `freebsd`, `p5p`, `apk`
+
 ## 1.0.0
 - Initial release

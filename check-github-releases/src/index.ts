@@ -55,8 +55,8 @@ export const checkGitHubReleases = async (
 ):Promise<Releases> => {
   const _ext = {
     winExt: [ '.exe' ],
-    macExt: [ '.dmg' ],
-    linExt: [ '.deb', '.rpm', '.pacman', '.AppImage' ]
+    macExt: [ '.dmg', 'pkg', 'mas', 'mas-dev' ],
+    linExt: [ '.deb', '.rpm', '.pacman', 'freebsd', 'p5p', 'apk', '.AppImage' ]
   }
 
   if(opts) {

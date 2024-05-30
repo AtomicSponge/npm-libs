@@ -1,6 +1,6 @@
 {
   "name": "@spongex/check-github-releases",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Check a GitHub Releases via the API and parse download links",
   "author": "Matthew Evans",
   "license": "MIT",
