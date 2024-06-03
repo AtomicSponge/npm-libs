@@ -1,6 +1,6 @@
 {
   "name": "@spongex/os-appdata-path",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Get application storage location based on operating system",
   "author": "Matthew Evans",
   "license": "MIT",
