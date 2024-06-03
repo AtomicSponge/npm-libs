@@ -24,12 +24,12 @@ npm i @spongex/os-appdata-path
 
 Include ECMAScript:
 ```
-import { __os_appdata_path } from '@spongex/os_appdata_path
+import { __os_appdata_path } from '@spongex/os-appdata-path'
 ```
 
 Include CommonJS:
 ```
-const { __os_appdata_path } = require('@spongex/os_appdata_path')
+const { __os_appdata_path } = require('@spongex/os-appdata-path')
 ```
 
 ## Usage
@@ -48,6 +48,10 @@ if(__os_appdata_path !== null) {
 ```
 
 # Changelog
+
+## 0.2.1
+- README fix
+- Dependencies bump
 
 ## 0.2.0
 - Updatad Linux & other OSes path from `/home/username/.local/share` to `/home/username/.config`
