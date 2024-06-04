@@ -9,7 +9,7 @@ npm i @spongex/regexps
 
 Include ECMAScript:
 ```
-import { testHexColor } from '@spongex/regexps
+import { testHexColor } from '@spongex/regexps'
 ```
 
 Include CommonJS:

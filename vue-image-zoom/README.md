@@ -9,7 +9,7 @@ npm i @spongex/vue-image-zoom
 
 Include ECMAScript:
 ```
-import { ImageZoom } from '@spongex/vue-image-zoom
+import { ImageZoom } from '@spongex/vue-image-zoom'
 ```
 
 Include CommonJS:
