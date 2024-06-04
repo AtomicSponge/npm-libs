@@ -10,7 +10,7 @@ npm i @spongex/async-for-each
 
 Include ECMAScript:
 ```
-import { asyncForEach } from '@spongex/async-for-each
+import { asyncForEach } from '@spongex/async-for-each'
 ```
 
 Include CommonJS:
