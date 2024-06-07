@@ -22,9 +22,11 @@ interface CmdRes {
 /** Return type of runJob */
 interface RunResults {
   /** Count of successful jobs */
-  goodRes:number
+  numSuccess:number
   /** Count of failed jobs */
-  badRes:number
+  numFailed:number
+  /** Results */
+  results:Array<CmdRes>
 }
 
 /** Run multiple processes simultaneously */
@@ -67,18 +69,32 @@ export class JobRunner {
 
       exec(cmd, this.#opts[jobIDX], (error:any, stdout:string, stderr:string) => {
         if(error) {
-          const cmdRes = { command: cmd, code: error.code, stdout: stdout, stderr: stderr }
+          const cmdRes = {
+            command: cmd,
+            code: error.code,
+            stdout: stdout,
+            stderr: stderr
+          }
           badRes++; this.#jobResults.push(cmdRes)
           this.#jobPriomises[jobIDX].reject(cmdRes)
         } else {
-          const cmdRes = { command: cmd, code: error.code, stdout: stdout, stderr: stderr }
+          const cmdRes = {
+            command: cmd,
+            code: 0,
+            stdout: stdout,
+            stderr: stderr
+          }
           goodRes++; this.#jobResults.push(cmdRes)
           this.#jobPriomises[jobIDX].resolve(cmdRes)
         }
       })
     })
     this.#runComplete = true
-    return <RunResults>{ goodRes, badRes }
+    return {
+      numSuccess: goodRes,
+      numFailed: badRes,
+      results: this.#jobResults
+    }
   }
 
   /**
