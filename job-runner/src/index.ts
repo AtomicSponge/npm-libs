@@ -74,11 +74,8 @@ export class JobRunner {
 
     // error checking
     if(this.#opts.length > 1 && this.#cmds.length !== this.#opts.length) {
-      throw new JobRunnerError(
-        `Must provide the same number of command and option arguments` +
-        ` or one single option for all commands!`,
-        this.constructor
-      )
+      throw new Error(`Must provide the same number of command and ` +
+        `option arguments or one single option for all commands!`)
     }
   }
 
@@ -140,32 +137,5 @@ export class JobRunner {
       numFailed: this.#badRes,
       runTime: this.#runTime
     }
-  }
-}
-
-/**
- * Class for handling Job Runner errors
- * @extends Error
- */
-class JobRunnerError extends Error {
-  message:string
-  code:Object
-  exitCode:number
-
-  /**
-   * Constructs the JobRunnerError class
-   * @param message Error message
-   * @param code Error code
-   * @param exitCode Exit code
-   */
-  constructor(message:string, code:Object, exitCode?:number) {
-    super()
-
-    this.name = this.constructor.name
-    this.message = message
-    this.code = code
-    this.exitCode = exitCode || 1
-
-    this.stack = new Error().stack
   }
 }
