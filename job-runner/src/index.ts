@@ -81,8 +81,11 @@ export class JobRunner {
   /**
    * Write the results of the job run to file
    * @param path 
+   * @param fileName
+   * @throws Error if the jobs did not complete
+   * @throws Any errors related to writing the file
    */
-  writeResults = (path:string) => {
+  writeResults = (path:string, fileName?:string) => {
     if(this.#runComplete === false) {
       throw new JobRunnerError(
         `Method 'writeResults' called before jobs were completed!`,
