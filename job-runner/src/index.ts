@@ -19,6 +19,14 @@ interface cmdRes {
   stderr:string   /** stderr buffer */
 }
 
+/** Return type of runJob */
+interface runResults {
+  /** Count of successful jobs */
+  goodRes:number
+  /** Count of failed jobs */
+  badRes:number
+}
+
 /** Run multiple processes simultaneously */
 export class JobRunner {
   /** Collection of job promises */
@@ -48,6 +56,9 @@ export class JobRunner {
    * Run the group of loaded jobs
    */
   runJobs = async () => {
+    let goodRes = 0
+    let badRes = 0
+
     this.#cmds.forEach((cmd:string, idx:number) => {
       this.#jobPriomises.push(new AsyncResolver())
       const jobIDX = this.#jobPriomises.length - 1
@@ -56,13 +67,14 @@ export class JobRunner {
         let cmdRes:cmdRes
         if(error) {
           cmdRes = { command: cmd, code: error.code, stdout: stdout, stderr: stderr }
-          this.#jobPriomises[jobIDX].reject(cmdRes)
+          badRes++; this.#jobPriomises[jobIDX].reject(cmdRes)
         }
         cmdRes = { command: cmd, code: error.code, stdout: stdout, stderr: stderr }
-        this.#jobPriomises[jobIDX].resolve(cmdRes)
+        goodRes++; this.#jobPriomises[jobIDX].resolve(cmdRes)
       })
     })
     this.#runComplete = true
+    return <runResults>{ goodRes, badRes }
   }
 
   /**
