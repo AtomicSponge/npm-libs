@@ -6,7 +6,7 @@
  */
 
 /**
- * Replaces newlines with another string
+ * Replaces newlines (\r\n, \r, \n) with another string
  * @param str String to perform replacement on
  * @param replace String to replace newlines with
  * @returns Modified string
