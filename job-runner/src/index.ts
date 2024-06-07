@@ -44,10 +44,18 @@ interface JobRunnerCallback {
 export class JobRunner {
   /** Collection of job promises */
   #jobPromises:Array<AsyncResolver> = []
+  /** Collection of the results of all jobs */
   #jobResults:Array<CmdRes> = []
+  /** Collection of commands to be processed */
   #cmds:Array<string> = []
+  /** Collection of options for commands */
   #opts:Array<ExecOptions> = []
+  /** Flag if the job run is complete */
   #runComplete = false
+  /** Number of successful results */
+  #goodRes = 0
+  /** Number of failed results */
+  #badRes = 0
 
   /**
    * Create a new JobRunner class
@@ -76,8 +84,9 @@ export class JobRunner {
    * failed runs, also an array of the results
    */
   jobRunner = async (callback?:JobRunnerCallback):Promise<RunResults> => {
-    let goodRes = 0
-    let badRes = 0
+    this.#runComplete = false
+    this.#goodRes = 0
+    this.#badRes = 0
 
     this.#cmds.forEach((cmd:string) => {
       this.#jobPromises.push(new AsyncResolver())
@@ -96,7 +105,7 @@ export class JobRunner {
             stdout: stdout,
             stderr: stderr
           }
-          badRes++; this.#jobResults.push(cmdRes)
+          this.#badRes++; this.#jobResults.push(cmdRes)
           this.#jobPromises[jobIDX].reject()
         } else {
           cmdRes = {
@@ -105,7 +114,7 @@ export class JobRunner {
             stdout: stdout,
             stderr: stderr
           }
-          goodRes++; this.#jobResults.push(cmdRes)
+          this.#goodRes++; this.#jobResults.push(cmdRes)
           this.#jobPromises[jobIDX].resolve()
         }
         if(callback !== undefined) callback(cmdRes, error)
@@ -114,8 +123,8 @@ export class JobRunner {
     await Promise.allSettled(this.#jobPromises)
     this.#runComplete = true
     return {
-      numSuccess: goodRes,
-      numFailed: badRes,
+      numSuccess: this.#goodRes,
+      numFailed: this.#badRes,
       results: this.#jobResults
     }
   }
