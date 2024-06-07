@@ -183,14 +183,14 @@ export class JobRunner {
 
       this.#jobResults.forEach((job:CmdRes) => {
         writeLog(`Command: ${job.command}`)
-        writeLog(`Durration: ${job.durration}`)
+        writeLog(`Durration: ${job.durration} ms`)
         writeLog(`Exit code: ${job.code}\n`)
         writeLog(`stdout:\n${job.stdout}`)
         writeLog(`stderr:\n${job.stderr}`)
         writeLog(`\n${'-'.repeat(20)}\n`)
       })
 
-      writeLog(`Run time: ${this.#runTime}`)
+      writeLog(`Run time: ${this.#runTime} ms`)
       writeLog(`Completed at: ${new Date().toLocaleString(__locale)}`)
     } catch (error:any) {
       throw new JobRunnerError(error.message, this.writeResults)
