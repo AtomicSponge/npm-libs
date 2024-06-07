@@ -33,7 +33,7 @@ interface RunResults {
 /** Run multiple processes simultaneously */
 export class JobRunner {
   /** Collection of job promises */
-  #jobPriomises:Array<AsyncResolver> = []
+  #jobPromises:Array<AsyncResolver> = []
   #jobResults:Array<CmdRes> = []
   #cmds:Array<string> = []
   #opts:Array<ExecOptions> = []
@@ -68,8 +68,8 @@ export class JobRunner {
     let badRes = 0
 
     this.#cmds.forEach((cmd:string) => {
-      this.#jobPriomises.push(new AsyncResolver())
-      const jobIDX = this.#jobPriomises.length - 1
+      this.#jobPromises.push(new AsyncResolver())
+      const jobIDX = this.#jobPromises.length - 1
 
       let opt
       if(this.#opts.length === 1) opt = this.#opts[0]
@@ -85,7 +85,7 @@ export class JobRunner {
             stderr: stderr
           }
           badRes++; this.#jobResults.push(cmdRes)
-          this.#jobPriomises[jobIDX].reject(cmdRes)
+          this.#jobPromises[jobIDX].reject(cmdRes)
         } else {
           cmdRes = {
             command: cmd,
@@ -94,11 +94,12 @@ export class JobRunner {
             stderr: stderr
           }
           goodRes++; this.#jobResults.push(cmdRes)
-          this.#jobPriomises[jobIDX].resolve(cmdRes)
+          this.#jobPromises[jobIDX].resolve(cmdRes)
         }
         if(callback !== undefined) callback(cmdRes)
       })
     })
+    await Promise.allSettled(this.#jobPromises)
     this.#runComplete = true
     return {
       numSuccess: goodRes,
