@@ -36,7 +36,26 @@ interface RunResults {
   runTime:number
 }
 
-/** Callback for the {@link jobRunner} Function */
+/** Splicer object */
+interface Splicer {
+  /** Variable for splaicer */
+  var:string,
+  /** List of values to replace variable with */
+  vals:Array<string>
+}
+
+/**
+ * Splicer for the {@link jobRunner} function
+ * This replaces variables with values in the commands
+ */
+interface JobRunnerSplicer {
+  (
+    /** List of {@link Splicer} objects */
+    splice:Array<Splicer>
+  ):void
+}
+
+/** Callback for the {@link jobRunner} function */
 interface JobRunnerCallback {
   (
     /** Result of the command */
@@ -88,7 +107,7 @@ export class JobRunner {
    * @returns A {@link RunResults} object with the count of successful and
    * failed runs, also an array of the results
    */
-  jobRunner = async (callback?:JobRunnerCallback):Promise<RunResults> => {
+  jobRunner = async (splicer?:JobRunnerSplicer, callback?:JobRunnerCallback):Promise<RunResults> => {
     this.#goodRes = 0
     this.#badRes = 0
     this.#runTime = 0
