@@ -14,10 +14,16 @@ import { AsyncResolver } from '@spongex/async-resolver'
 
 /** Resolution of a job command */
 interface CmdRes {
-  command:string  /** Command ran by a job */
-  code:number     /** Status code */
-  stdout:string   /** stdout buffer */
-  stderr:string   /** stderr buffer */
+  /** Command ran by a job */
+  command:string
+  /** Status code */
+  code:number
+  /** stdout buffer */
+  stdout:string
+  /** stderr buffer */
+  stderr:string
+  /** Durration of the job */
+  durration:number
 }
 
 /** Return type of {@link jobRunner} */
@@ -100,14 +106,17 @@ export class JobRunner {
       if(this.#opts.length === 1) opt = this.#opts[0]
       else opt = this.#opts[jobIDX] || null
 
+      const cmdStart = performance.now()
       exec(cmd, opt, (error:any, stdout:string, stderr:string) => {
+        const cmdStop = performance.now()
         let cmdRes
         if(error) {
           cmdRes = {
             command: cmd,
             code: error.code,
             stdout: stdout,
-            stderr: stderr
+            stderr: stderr,
+            durration: cmdStop - cmdStart
           }
           this.#badRes++; this.#jobResults.push(cmdRes)
           this.#jobPromises[jobIDX].reject()
@@ -116,7 +125,8 @@ export class JobRunner {
             command: cmd,
             code: 0,
             stdout: stdout,
-            stderr: stderr
+            stderr: stderr,
+            durration: cmdStop - cmdStart
           }
           this.#goodRes++; this.#jobResults.push(cmdRes)
           this.#jobPromises[jobIDX].resolve()
