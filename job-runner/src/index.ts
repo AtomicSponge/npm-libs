@@ -85,7 +85,7 @@ export class JobRunner {
             stderr: stderr
           }
           badRes++; this.#jobResults.push(cmdRes)
-          this.#jobPromises[jobIDX].reject(cmdRes)
+          this.#jobPromises[jobIDX].reject()
         } else {
           cmdRes = {
             command: cmd,
@@ -94,7 +94,7 @@ export class JobRunner {
             stderr: stderr
           }
           goodRes++; this.#jobResults.push(cmdRes)
-          this.#jobPromises[jobIDX].resolve(cmdRes)
+          this.#jobPromises[jobIDX].resolve()
         }
         if(callback !== undefined) callback(cmdRes)
       })
