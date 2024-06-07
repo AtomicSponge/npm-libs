@@ -38,6 +38,7 @@ const myJobs = new JobRunner(
     { cwd: '/home/user/foldere' }
     ]
   )
+
 { numSuccess, numFailed, results } = await myJobs.jobRunner()
 
 myJobs.writeResults(process.cwd())
