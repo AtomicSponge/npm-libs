@@ -35,13 +35,13 @@
     "LICENSE.md",
     "README.md"
   ],
+  "dependencies": {
+    "@spongex/async-resolver": "^1.0.1",
+    "@spongex/system-locale": "^1.0.0"
+  },
   "devDependencies": {
     "@types/node": "^20.14.2",
     "typescript": "^5.4.5",
     "unbuild": "^2.0.0"
-  },
-  "dependencies": {
-    "@spongex/async-resolver": "^1.0.1",
-    "@spongex/system-locale": "^1.0.0"
   }
 }
