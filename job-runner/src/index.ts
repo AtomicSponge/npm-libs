@@ -181,10 +181,11 @@ export class JobRunner {
       writeLog(`Number of failed jobs: ${this.#badRes}`)
 
       this.#jobResults.forEach((job:CmdRes) => {
-        writeLog(job.command)
-        writeLog(`${job.code}`)
-        writeLog(job.stdout)
-        writeLog(job.stderr)
+        writeLog(`Command:\n${job.command}`)
+        writeLog(`Durration: ${job.durration}`)
+        writeLog(`Exit code: ${job.code}\n`)
+        writeLog(`stdout:\n${job.stdout}`)
+        writeLog(`stderr:\n${job.stderr}`)
       })
 
       writeLog(`Run time: ${this.#runTime}`)
