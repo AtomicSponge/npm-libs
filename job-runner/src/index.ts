@@ -182,7 +182,7 @@ export class JobRunner {
       writeLog(`\n${'-'.repeat(20)}\n`)
 
       this.#jobResults.forEach((job:CmdRes) => {
-        writeLog(`Command:\n${job.command}`)
+        writeLog(`Command: ${job.command}`)
         writeLog(`Durration: ${job.durration}`)
         writeLog(`Exit code: ${job.code}\n`)
         writeLog(`stdout:\n${job.stdout}`)
