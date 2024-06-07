@@ -51,7 +51,8 @@ export class JobRunner {
 
   /**
    * Create a new JobRunner class
-   * @throws 
+   * @throws Error if provided options is not the same length as commands
+   * Allows for a single option to be passed to be used on all commands
    */
   constructor(cmds:Array<string>, opts?:Array<ExecOptions>) {
     this.#cmds = cmds
@@ -70,7 +71,7 @@ export class JobRunner {
   /**
    * Run the group of loaded jobs
    * @partam callback Callback function that is passed an {@link CmdRes} object
-   * and the error from exec if any
+   * and the error from exec if any - runs after each command
    * @returns A {@link RunResults} object with the count of successful and
    * failed runs, also an array of the results
    */
