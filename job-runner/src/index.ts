@@ -147,8 +147,8 @@ export class JobRunner {
 
   /**
    * Write the results of the job run to file
-   * @param path 
-   * @param fileName
+   * @param dir Path to save log to
+   * @param fileName Name of log file
    * @throws Error if the jobs did not complete
    * @throws Any errors related to writing the file
    */
@@ -179,6 +179,7 @@ export class JobRunner {
 
       writeLog(`Number of successful jobs: ${this.#goodRes}`)
       writeLog(`Number of failed jobs: ${this.#badRes}`)
+      writeLog(`\n${'-'.repeat(20)}\n`)
 
       this.#jobResults.forEach((job:CmdRes) => {
         writeLog(`Command:\n${job.command}`)
@@ -186,9 +187,11 @@ export class JobRunner {
         writeLog(`Exit code: ${job.code}\n`)
         writeLog(`stdout:\n${job.stdout}`)
         writeLog(`stderr:\n${job.stderr}`)
+        writeLog(`\n${'-'.repeat(20)}\n`)
       })
 
       writeLog(`Run time: ${this.#runTime}`)
+      writeLog(`Completed at: ${new Date().toLocaleString(__locale)}`)
     } catch (error:any) {
       throw new JobRunnerError(error.message, this.writeResults)
     }
