@@ -144,7 +144,8 @@ export class JobRunner {
       )
     }
 
-    fileName = fileName || 'logfile.log'
+    const timestamp = (new Date().toLocaleTimeString(__locale)).split(' ')[0]
+    fileName = fileName || `jobrunner-${timestamp}.log`
 
     /**
      * Write a message to the log file
