@@ -20,7 +20,7 @@ const { testAlpha } = require('@spongex/regexps')
 # API Reference
 
 ### replaceNewlines: (str: string, replace: string) => string
-Replaces newlines with another string.
+Replaces newlines (\r\n, \r, \n) with another string.
 Returns the modified string.
 ```
 const resStr = replaceNewlines(oldStr, '<br/>')
