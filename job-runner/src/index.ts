@@ -20,8 +20,8 @@ interface CmdRes {
   stdout:string
   /** stderr buffer */
   stderr:string
-  /** Durration of the job */
-  durration:number
+  /** Duration of the job */
+  duration:number
 }
 
 /** Return type of {@link jobRunner} */
@@ -110,7 +110,7 @@ export class JobRunner {
             code: error.code,
             stdout: stdout,
             stderr: stderr,
-            durration: cmdStop - cmdStart
+            duration: cmdStop - cmdStart
           }
           this.#badRes++; this.#jobResults.push(cmdRes)
           this.#jobPromises[jobIDX].reject()
@@ -120,7 +120,7 @@ export class JobRunner {
             code: 0,
             stdout: stdout,
             stderr: stderr,
-            durration: cmdStop - cmdStart
+            duration: cmdStop - cmdStart
           }
           this.#goodRes++; this.#jobResults.push(cmdRes)
           this.#jobPromises[jobIDX].resolve()
