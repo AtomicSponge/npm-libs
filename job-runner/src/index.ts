@@ -20,7 +20,7 @@ interface CmdRes {
   stderr:string   /** stderr buffer */
 }
 
-/** Return type of runJob */
+/** Return type of {@link jobRunner} */
 interface RunResults {
   /** Count of successful jobs */
   numSuccess:number
@@ -28,6 +28,16 @@ interface RunResults {
   numFailed:number
   /** Results */
   results:Array<CmdRes>
+}
+
+/** Callback for the {@link jobRunner} Function */
+interface JobRunnerCallback {
+  (
+    /** Result of the command */
+    result:CmdRes,
+    /** Error from exec if any */
+    error?:any
+  ):void
 }
 
 /** Run multiple processes simultaneously */
@@ -60,10 +70,11 @@ export class JobRunner {
   /**
    * Run the group of loaded jobs
    * @partam callback Callback function that is passed an {@link CmdRes} object
+   * and the error from exec if any
    * @returns A {@link RunResults} object with the count of successful and
    * failed runs, also an array of the results
    */
-  jobRunner = async (callback?:(result:CmdRes)=>void):Promise<RunResults> => {
+  jobRunner = async (callback?:JobRunnerCallback):Promise<RunResults> => {
     let goodRes = 0
     let badRes = 0
 
@@ -96,7 +107,7 @@ export class JobRunner {
           goodRes++; this.#jobResults.push(cmdRes)
           this.#jobPromises[jobIDX].resolve()
         }
-        if(callback !== undefined) callback(cmdRes)
+        if(callback !== undefined) callback(cmdRes, error)
       })
     })
     await Promise.allSettled(this.#jobPromises)
