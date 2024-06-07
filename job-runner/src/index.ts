@@ -70,7 +70,7 @@ export class JobRunner {
     if(this.#opts.length > 1 && this.#cmds.length !== this.#opts.length) {
       throw new JobRunnerError(
         `Must provide the same number of command and option arguments` +
-        `or one single option for all commands!`,
+        ` or one single option for all commands!`,
         this.constructor
       )
     }
