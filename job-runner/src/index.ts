@@ -20,7 +20,7 @@ interface cmdRes {
 }
 
 /** Return type of runJob */
-interface runResults {
+interface RunResults {
   /** Count of successful jobs */
   goodRes:number
   /** Count of failed jobs */
@@ -55,7 +55,7 @@ export class JobRunner {
   /**
    * Run the group of loaded jobs
    */
-  runJobs = async () => {
+  runJobs = async ():Promise<RunResults> => {
     let goodRes = 0
     let badRes = 0
 
@@ -74,7 +74,7 @@ export class JobRunner {
       })
     })
     this.#runComplete = true
-    return <runResults>{ goodRes, badRes }
+    return <RunResults>{ goodRes, badRes }
   }
 
   /**
