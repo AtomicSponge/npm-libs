@@ -31,6 +31,7 @@ interface RunResults {
 export class JobRunner {
   /** Collection of job promises */
   #jobPriomises:Array<AsyncResolver> = []
+  #jobResults:Array<CmdRes> = []
   #cmds:Array<string> = []
   #opts:Array<ExecOptions> = []
   #runComplete = false
@@ -54,9 +55,9 @@ export class JobRunner {
 
   /**
    * Run the group of loaded jobs
-   * @returns Am object with the count of good and bad job runs
+   * @returns Am object with the count of successful and failed runs
    */
-  runJobs = async ():Promise<RunResults> => {
+  jobRunner = async ():Promise<RunResults> => {
     let goodRes = 0
     let badRes = 0
 
@@ -65,13 +66,15 @@ export class JobRunner {
       const jobIDX = this.#jobPriomises.length - 1
 
       exec(cmd, this.#opts[jobIDX], (error:any, stdout:string, stderr:string) => {
-        let cmdRes:CmdRes
         if(error) {
-          cmdRes = { command: cmd, code: error.code, stdout: stdout, stderr: stderr }
-          badRes++; this.#jobPriomises[jobIDX].reject(cmdRes)
+          const cmdRes = { command: cmd, code: error.code, stdout: stdout, stderr: stderr }
+          badRes++; this.#jobResults.push(cmdRes)
+          this.#jobPriomises[jobIDX].reject(cmdRes)
+        } else {
+          const cmdRes = { command: cmd, code: error.code, stdout: stdout, stderr: stderr }
+          goodRes++; this.#jobResults.push(cmdRes)
+          this.#jobPriomises[jobIDX].resolve(cmdRes)
         }
-        cmdRes = { command: cmd, code: error.code, stdout: stdout, stderr: stderr }
-        goodRes++; this.#jobPriomises[jobIDX].resolve(cmdRes)
       })
     })
     this.#runComplete = true
