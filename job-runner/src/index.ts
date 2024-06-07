@@ -28,12 +28,12 @@ interface CmdRes {
 
 /** Return type of {@link jobRunner} */
 interface RunResults {
+  /** Results */
+  results:Array<CmdRes>
   /** Count of successful jobs */
   numSuccess:number
   /** Count of failed jobs */
   numFailed:number
-  /** Results */
-  results:Array<CmdRes>
 }
 
 /** Callback for the {@link jobRunner} Function */
@@ -139,9 +139,9 @@ export class JobRunner {
     this.#runComplete = true
     this.#runTime = endTime - startTime
     return {
+      results: this.#jobResults,
       numSuccess: this.#goodRes,
-      numFailed: this.#badRes,
-      results: this.#jobResults
+      numFailed: this.#badRes
     }
   }
 

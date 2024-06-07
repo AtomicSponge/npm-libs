@@ -39,7 +39,7 @@ const myJobs = new JobRunner(
     ]
   )
 
-{ numSuccess, numFailed, results } = await myJobs.jobRunner()
+{ results, numSuccess, numFailed } = await myJobs.jobRunner()
 
 myJobs.writeResults(process.cwd())
 ```
