@@ -94,7 +94,7 @@ export class JobRunner {
 
       let opt
       if(this.#opts.length === 1) opt = this.#opts[0]
-      else opt = this.#opts[jobIDX]
+      else opt = this.#opts[jobIDX] || null
 
       exec(cmd, opt, (error:any, stdout:string, stderr:string) => {
         let cmdRes
