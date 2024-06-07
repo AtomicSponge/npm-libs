@@ -19,7 +19,29 @@ const { scriptError } = require('@spongex/job-runner')
 
 # Usage
 
-uage info
+## Example
+
+```
+const myJobs = new JobRunner(
+  [
+    'ls',
+    'ls',
+    'ls',
+    'ls',
+    'ls'
+    ],
+  [
+    { cwd: '/home/user/foldera' },
+    { cwd: '/home/user/folderb' },
+    { cwd: '/home/user/folderc' },
+    { cwd: '/home/user/folderd' },
+    { cwd: '/home/user/foldere' }
+    ]
+  )
+{ numSuccess, numFailed, results } = await myJobs.jobRunner()
+
+myJobs.writeResults(process.cwd())
+```
 
 # Changelog
 
