@@ -5,8 +5,6 @@
  * @copyright MIT see LICENSE.md
  */
 
-import fs from 'node:fs'
-import path from 'node:path'
 import { exec, type ExecOptions } from 'node:child_process'
 
 import { __locale } from '@spongex/system-locale'
@@ -34,6 +32,8 @@ interface RunResults {
   numSuccess:number
   /** Count of failed jobs */
   numFailed:number
+  /** Total run time for all jobs */
+  runTime:number
 }
 
 /** Callback for the {@link jobRunner} Function */
@@ -56,8 +56,6 @@ export class JobRunner {
   #cmds:Array<string> = []
   /** Collection of options for commands */
   #opts:Array<ExecOptions> = []
-  /** Flag if the job run is complete */
-  #runComplete = false
   /** Number of successful results */
   #goodRes = 0
   /** Number of failed results */
@@ -92,7 +90,6 @@ export class JobRunner {
    * failed runs, also an array of the results
    */
   jobRunner = async (callback?:JobRunnerCallback):Promise<RunResults> => {
-    this.#runComplete = false
     this.#goodRes = 0
     this.#badRes = 0
     this.#runTime = 0
@@ -136,64 +133,12 @@ export class JobRunner {
     })
     await Promise.allSettled(this.#jobPromises)
     const endTime = performance.now()
-    this.#runComplete = true
     this.#runTime = endTime - startTime
     return {
       results: this.#jobResults,
       numSuccess: this.#goodRes,
-      numFailed: this.#badRes
-    }
-  }
-
-  /**
-   * Write the results of the job run to file
-   * @param dir Path to save log to
-   * @param fileName Name of log file
-   * @throws Error if the jobs did not complete
-   * @throws Any errors related to writing the file
-   */
-  writeResults = (dir:string, fileName?:string) => {
-    if(this.#runComplete === false) {
-      throw new JobRunnerError(
-        `Method 'writeResults' called before jobs were completed!`,
-        this.writeResults
-      )
-    }
-
-    const timestamp = (new Date().toLocaleTimeString(__locale)).split(' ')[0]
-    fileName = fileName || `jobrunner-${timestamp}.log`
-
-    /**
-     * Write a message to the log file
-     * @param message String to write
-     * @throws Any errors related to the write
-     */
-    const writeLog = (message:string) => {
-      try {
-        fs.appendFileSync(path.join(dir, fileName), message)
-      } catch (error:any) { throw error }
-    }
-
-    try {
-      //  create new file
-
-      writeLog(`Number of successful jobs: ${this.#goodRes}`)
-      writeLog(`Number of failed jobs: ${this.#badRes}`)
-      writeLog(`\n${'-'.repeat(20)}\n`)
-
-      this.#jobResults.forEach((job:CmdRes) => {
-        writeLog(`Command: ${job.command}`)
-        writeLog(`Durration: ${job.durration} ms`)
-        writeLog(`Exit code: ${job.code}\n`)
-        writeLog(`stdout:\n${job.stdout}`)
-        writeLog(`stderr:\n${job.stderr}`)
-        writeLog(`\n${'-'.repeat(20)}\n`)
-      })
-
-      writeLog(`Run time: ${this.#runTime} ms`)
-      writeLog(`Completed at: ${new Date().toLocaleString(__locale)}`)
-    } catch (error:any) {
-      throw new JobRunnerError(error.message, this.writeResults)
+      numFailed: this.#badRes,
+      runTime: this.#runTime
     }
   }
 }
