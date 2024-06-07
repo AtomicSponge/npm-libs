@@ -65,8 +65,10 @@ export class JobRunner {
 
   /**
    * Create a new JobRunner class
+   * @param cmds Each command to be ran by exec
+   * @param opts Options for exec, can be for each command or a single option
    * @throws Error if provided options is not the same length as commands
-   * Allows for a single option to be passed to be used on all commands
+   * or not a single option
    */
   constructor(cmds:Array<string>, opts?:Array<ExecOptions>) {
     this.#cmds = cmds
