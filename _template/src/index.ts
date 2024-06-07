@@ -1,6 +1,6 @@
 /**
  * @author Matthew Evans
- * @module template
+ * @module spongex/template
  * @see README.md
  * @copyright MIT see LICENSE.md
  */

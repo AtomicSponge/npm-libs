@@ -1,6 +1,6 @@
 /**
  * @author Matthew Evans
- * @module template
+ * @module spongex/job-runner
  * @see README.md
  * @copyright MIT see LICENSE.md
  */
