@@ -56,6 +56,8 @@ export class JobRunner {
   #goodRes = 0
   /** Number of failed results */
   #badRes = 0
+  /** Run time */
+  #runTime = 0
 
   /**
    * Create a new JobRunner class
@@ -87,7 +89,9 @@ export class JobRunner {
     this.#runComplete = false
     this.#goodRes = 0
     this.#badRes = 0
+    this.#runTime = 0
 
+    const startTime = performance.now()
     this.#cmds.forEach((cmd:string) => {
       this.#jobPromises.push(new AsyncResolver())
       const jobIDX = this.#jobPromises.length - 1
@@ -121,7 +125,9 @@ export class JobRunner {
       })
     })
     await Promise.allSettled(this.#jobPromises)
+    const endTime = performance.now()
     this.#runComplete = true
+    this.#runTime = endTime - startTime
     return {
       numSuccess: this.#goodRes,
       numFailed: this.#badRes,
@@ -161,15 +167,17 @@ export class JobRunner {
     try {
       //  create new file
 
-      this.#jobResults.forEach((job:CmdRes) => {
-        writeLog(`Number of successful jobs: ${this.#goodRes}`)
-        writeLog(`Number of failed jobs: ${this.#badRes}`)
+      writeLog(`Number of successful jobs: ${this.#goodRes}`)
+      writeLog(`Number of failed jobs: ${this.#badRes}`)
 
+      this.#jobResults.forEach((job:CmdRes) => {
         writeLog(job.command)
         writeLog(`${job.code}`)
         writeLog(job.stdout)
         writeLog(job.stderr)
       })
+
+      writeLog(`Run time: ${this.#runTime}`)
     } catch (error:any) {
       throw new JobRunnerError(error.message, this.writeResults)
     }
