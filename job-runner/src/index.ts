@@ -56,7 +56,7 @@ export class JobRunner {
   #goodRes = 0
   /** Number of failed results */
   #badRes = 0
-  /** Run time */
+  /** Total run time for all jobs */
   #runTime = 0
 
   /**
