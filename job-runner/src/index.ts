@@ -14,14 +14,14 @@ import { AsyncResolver } from '@spongex/async-resolver'
 interface CmdRes {
   /** Command ran by a job */
   command:string
+  /** Duration of the job */
+  duration:number
   /** Status code */
   code:number
   /** stdout buffer */
   stdout:string
   /** stderr buffer */
   stderr:string
-  /** Duration of the job */
-  duration:number
 }
 
 /** Return type of {@link jobRunner} */
@@ -109,20 +109,20 @@ export class JobRunner {
         if(error) {
           cmdRes = {
             command: cmd,
+            duration: cmdStop - cmdStart,
             code: error.code,
             stdout: stdout,
-            stderr: stderr,
-            duration: cmdStop - cmdStart
+            stderr: stderr
           }
           this.#badRes++; this.#jobResults.push(cmdRes)
           this.#jobPromises[jobIDX].reject()
         } else {
           cmdRes = {
             command: cmd,
+            duration: cmdStop - cmdStart,
             code: 0,
             stdout: stdout,
-            stderr: stderr,
-            duration: cmdStop - cmdStart
+            stderr: stderr
           }
           this.#goodRes++; this.#jobResults.push(cmdRes)
           this.#jobPromises[jobIDX].resolve()
