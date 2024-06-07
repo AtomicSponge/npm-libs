@@ -12,7 +12,7 @@ import { exec, type ExecOptions } from 'node:child_process'
 import { AsyncResolver } from "@spongex/async-resolver"
 
 /** Resolution of a job command */
-interface cmdRes {
+interface CmdRes {
   command:string  /** Command ran by a job */
   code:number     /** Status code */
   stdout:string   /** stdout buffer */
@@ -64,7 +64,7 @@ export class JobRunner {
       const jobIDX = this.#jobPriomises.length - 1
 
       exec(cmd, this.#opts[jobIDX], (error:any, stdout:string, stderr:string) => {
-        let cmdRes:cmdRes
+        let cmdRes:CmdRes
         if(error) {
           cmdRes = { command: cmd, code: error.code, stdout: stdout, stderr: stderr }
           badRes++; this.#jobPriomises[jobIDX].reject(cmdRes)
