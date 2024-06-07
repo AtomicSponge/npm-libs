@@ -40,8 +40,6 @@ const myJobs = new JobRunner(
   )
 
 { results, numSuccess, numFailed, runTime } = await myJobs.jobRunner()
-
-myJobs.writeResults(process.cwd())
 ```
 
 # Changelog
