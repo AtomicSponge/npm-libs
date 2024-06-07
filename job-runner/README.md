@@ -9,12 +9,12 @@ npm i @spongex/job-runner
 
 Include ECMAScript:
 ```
-import { scriptError } from '@spongex/job-runner'
+import { JobRunner } from '@spongex/job-runner'
 ```
 
 Include CommonJS:
 ```
-const { scriptError } = require('@spongex/job-runner')
+const { JobRunner } = require('@spongex/job-runner')
 ```
 
 # Usage
