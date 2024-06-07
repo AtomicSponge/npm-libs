@@ -19,6 +19,13 @@ const { testAlpha } = require('@spongex/regexps')
 
 # API Reference
 
+### replaceNewlines: (str: string, replace: string) => string
+Replaces newlines with another string.
+Returns the modified string.
+```
+const resStr = replaceNewlines(oldStr, '<br/>')
+```
+
 ### testHexColor: (str: string) => boolean
 Test if a valid hexadecimal color value.  Allows for alpha channel.
 Returns true if valid, else false.
@@ -61,7 +68,17 @@ Returns true if valid, else false.
 const res = testAlphaNumeric('ABC123')
 ```
 
+### validHex: (str: string) => boolean
+Tests a string for valid hex values.
+Returns true if valid, else false.
+```
+const res = validHex('0f9dacdc')
+```
+
 # Changelog
+
+## 1.1.0
+- Added two new functions `replaceNewlines` and `validHex`
 
 ## 1.0.0
 - Initial release

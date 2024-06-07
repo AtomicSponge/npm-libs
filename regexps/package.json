@@ -1,6 +1,6 @@
 {
   "name": "@spongex/regexps",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Collection of regexps",
   "author": "Matthew Evans",
   "license": "MIT",
@@ -14,7 +14,8 @@
   "keywords": [
     "regex",
     "regexps",
-    "tests"
+    "tests",
+    "validator"
   ],
   "bugs": {
     "url": "https://github.com/AtomicSponge/npm-libs/issues"

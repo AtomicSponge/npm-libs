@@ -6,6 +6,16 @@
  */
 
 /**
+ * Replaces newlines with another string
+ * @param str String to perform replacement on
+ * @param replace String to replace newlines with
+ * @returns Modified string
+ */
+export const replaceNewlines = (str:string, replace:string):string => {
+  return str.replace(/(?:\r\n|\r|\n)/g, replace)
+}
+
+/**
  * Regex that tests for valid hex color values
  * Will allow alpha channel
  * @param str String to test
@@ -58,4 +68,13 @@ export const testNumeric = (str:string):boolean => {
  */
 export const testAlphaNumeric = (str:string):boolean => {
   return /^[a-zA-Z0-9]+$/g.test(str)
+}
+
+/**
+ * Tests a string for valid hex values
+ * @param str String to test
+ * @returns True if the string contains valid hex, else false
+ */
+export const validHex = (str:string):boolean => {
+  return /^[A-Fa-f0-9]+$/g.test(str)
 }
