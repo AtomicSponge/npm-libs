@@ -47,7 +47,7 @@ export class JobRunner {
     this.#opts = opts || []
 
     // error checking
-    if(this.#opts.length > 0 && this.#cmds.length !== this.#opts.length) {
+    if(this.#opts.length > 1 && this.#cmds.length !== this.#opts.length) {
       throw new JobRunnerError(
         `Must provide the name number of command and option arguments!`,
         this.constructor
@@ -57,7 +57,8 @@ export class JobRunner {
 
   /**
    * Run the group of loaded jobs
-   * @returns Am object with the count of successful and failed runs
+   * @returns Am object with the count of successful and failed runs,
+   * and an array of the results
    */
   jobRunner = async ():Promise<RunResults> => {
     let goodRes = 0
@@ -67,7 +68,11 @@ export class JobRunner {
       this.#jobPriomises.push(new AsyncResolver())
       const jobIDX = this.#jobPriomises.length - 1
 
-      exec(cmd, this.#opts[jobIDX], (error:any, stdout:string, stderr:string) => {
+      let opt
+      if(this.#opts.length === 1) opt = this.#opts[0]
+      else opt = this.#opts[jobIDX]
+
+      exec(cmd, opt, (error:any, stdout:string, stderr:string) => {
         if(error) {
           const cmdRes = {
             command: cmd,
