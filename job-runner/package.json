@@ -41,6 +41,7 @@
     "unbuild": "^2.0.0"
   },
   "dependencies": {
-    "@spongex/async-resolver": "^1.0.1"
+    "@spongex/async-resolver": "^1.0.1",
+    "@spongex/system-locale": "^1.0.0"
   }
 }

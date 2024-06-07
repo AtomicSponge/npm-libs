@@ -9,7 +9,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { exec, type ExecOptions } from 'node:child_process'
 
-import { AsyncResolver } from "@spongex/async-resolver"
+import { __locale } from '@spongex/system-locale'
+import { AsyncResolver } from '@spongex/async-resolver'
 
 /** Resolution of a job command */
 interface CmdRes {
@@ -58,10 +59,11 @@ export class JobRunner {
 
   /**
    * Run the group of loaded jobs
-   * @returns Am object with the count of successful and failed runs,
-   * and an array of the results
+   * @partam callback Callback function that is passed an {@link CmdRes} object
+   * @returns A {@link RunResults} object with the count of successful and
+   * failed runs, also an array of the results
    */
-  jobRunner = async ():Promise<RunResults> => {
+  jobRunner = async (callback?:(result:CmdRes)=>void):Promise<RunResults> => {
     let goodRes = 0
     let badRes = 0
 
@@ -74,8 +76,9 @@ export class JobRunner {
       else opt = this.#opts[jobIDX]
 
       exec(cmd, opt, (error:any, stdout:string, stderr:string) => {
+        let cmdRes
         if(error) {
-          const cmdRes = {
+          cmdRes = {
             command: cmd,
             code: error.code,
             stdout: stdout,
@@ -84,7 +87,7 @@ export class JobRunner {
           badRes++; this.#jobResults.push(cmdRes)
           this.#jobPriomises[jobIDX].reject(cmdRes)
         } else {
-          const cmdRes = {
+          cmdRes = {
             command: cmd,
             code: 0,
             stdout: stdout,
@@ -93,6 +96,7 @@ export class JobRunner {
           goodRes++; this.#jobResults.push(cmdRes)
           this.#jobPriomises[jobIDX].resolve(cmdRes)
         }
+        if(callback !== undefined) callback(cmdRes)
       })
     })
     this.#runComplete = true
