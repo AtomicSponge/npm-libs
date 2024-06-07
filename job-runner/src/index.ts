@@ -157,9 +157,19 @@ export class JobRunner {
         fs.appendFileSync(path.join(dir, fileName), message)
       } catch (error:any) { throw error }
     }
-    
+
     try {
-      //
+      //  create new file
+
+      this.#jobResults.forEach((job:CmdRes) => {
+        writeLog(`Number of successful jobs: ${this.#goodRes}`)
+        writeLog(`Number of failed jobs: ${this.#badRes}`)
+
+        writeLog(job.command)
+        writeLog(`${job.code}`)
+        writeLog(job.stdout)
+        writeLog(job.stderr)
+      })
     } catch (error:any) {
       throw new JobRunnerError(error.message, this.writeResults)
     }
