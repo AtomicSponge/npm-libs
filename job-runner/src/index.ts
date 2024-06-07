@@ -59,7 +59,7 @@ export class JobRunner {
     let goodRes = 0
     let badRes = 0
 
-    this.#cmds.forEach((cmd:string, idx:number) => {
+    this.#cmds.forEach((cmd:string) => {
       this.#jobPriomises.push(new AsyncResolver())
       const jobIDX = this.#jobPriomises.length - 1
 
