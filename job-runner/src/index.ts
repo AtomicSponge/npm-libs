@@ -136,12 +136,31 @@ export class JobRunner {
    * @throws Error if the jobs did not complete
    * @throws Any errors related to writing the file
    */
-  writeResults = (path:string, fileName?:string) => {
+  writeResults = (dir:string, fileName?:string) => {
     if(this.#runComplete === false) {
       throw new JobRunnerError(
         `Method 'writeResults' called before jobs were completed!`,
         this.writeResults
       )
+    }
+
+    fileName = fileName || 'logfile.log'
+
+    /**
+     * Write a message to the log file
+     * @param message String to write
+     * @throws Any errors related to the write
+     */
+    const writeLog = (message:string) => {
+      try {
+        fs.appendFileSync(path.join(dir, fileName), message)
+      } catch (error:any) { throw error }
+    }
+    
+    try {
+      //
+    } catch (error:any) {
+      throw new JobRunnerError(error.message, this.writeResults)
     }
   }
 }
