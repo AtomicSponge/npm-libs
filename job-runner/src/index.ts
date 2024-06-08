@@ -10,7 +10,7 @@ import { exec, type ExecOptions } from 'node:child_process'
 import { __locale } from '@spongex/system-locale'
 import { AsyncResolver } from '@spongex/async-resolver'
 
-/** Resolution of a job command */
+/** Resolution of a {@link jobRunner} command */
 interface CmdRes {
   /** Command ran by a job */
   command:string
@@ -36,7 +36,7 @@ interface RunResults {
   runTime:number
 }
 
-/** Splicer object */
+/** Splicer object for the {@link jobRunner} function */
 interface Splicer {
   /** Variable to match replacements with */
   var:string,
