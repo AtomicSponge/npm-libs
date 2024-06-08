@@ -31,7 +31,7 @@ The `JobRunner` constructor has the following signature:
 ---
 
 The `runAllJobs` member function has the following signature:
-### runAllJobs: async (splicers?: Array<Splicer>, callback?: JobRunnerCallback) => Promise<RunResults>
+### runAllJobs: async (splicers?: Array<Splicer>, callback?: JobRunnerCallback) => Promise\<RunResults>
 
 `splicers` is an optional array of variables and values to be replaced in the commands.
 See the examples below for a demonstration of its usage.
