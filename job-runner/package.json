@@ -7,12 +7,18 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AtomicSponge/npm-libs.git",
-    "directory": "optional"
+    "directory": "job-runner"
   },
   "url": "https://www.npmjs.com/package/@spongex/job-runner",
   "homepage": "https://github.com/AtomicSponge/npm-libs#readme",
   "keywords": [
-    "keywords"
+    "class",
+    "object",
+    "exec",
+    "node",
+    "async",
+    "synchronous",
+    "process"
   ],
   "bugs": {
     "url": "https://github.com/AtomicSponge/npm-libs/issues"

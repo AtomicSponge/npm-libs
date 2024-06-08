@@ -1,6 +1,6 @@
 #  job-runner
 
-Run multiple processes simultaneously
+Run multiple processes simultaneously easily with one class!
 
 Install to your existing project using:
 ```
