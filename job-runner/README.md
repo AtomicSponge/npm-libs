@@ -19,7 +19,7 @@ const { JobRunner } = require('@spongex/job-runner')
 
 # Usage
 
-The `JobRunner constructor` has the following signature:
+The `JobRunner` constructor has the following signature:
 ### JobRunner: (cmds: Array<string>, opts?: Array<ExecOptions>) => void
 
 `cmds` is a list of the commands to be passed to [exec](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback)
