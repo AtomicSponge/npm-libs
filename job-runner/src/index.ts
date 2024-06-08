@@ -90,7 +90,6 @@ export class JobRunner {
   runAllJobs = async (splicers?:Array<Splicer>, callback?:JobRunnerCallback):Promise<RunResults> => {
     let goodRes = 0
     let badRes = 0
-    let runTime = 0
 
     const startTime = performance.now()
     this.#cmds.forEach((cmd:string) => {
@@ -115,6 +114,7 @@ export class JobRunner {
         let cmdRes
         if(error) {
           //  Cmd resulted in error
+          console.log(error)
           cmdRes = {
             command: cmd,
             duration: cmdStop - cmdStart,
@@ -144,19 +144,15 @@ export class JobRunner {
     const finishedJobs:Array<Promise<CmdRes>> = []
     this.#jobPromises.forEach(job => { finishedJobs.push(job.promise) })
     const res = await Promise.allSettled(finishedJobs)
-
-    let cmdResults:Array<CmdRes> = []
-    res.forEach(result => {
-      //
-    })
-
     const endTime = performance.now()
-    runTime = endTime - startTime
+    let cmdResults:any = []
+    res.forEach(result => { cmdResults.push(result) })
+
     return {
       results: cmdResults,
       numSuccess: goodRes,
       numFailed: badRes,
-      runTime: runTime
+      runTime: endTime - startTime
     }
   }
 }
