@@ -19,7 +19,9 @@ const { JobRunner } = require('@spongex/job-runner')
 
 # Usage
 
-## Example
+## Examples
+
+__Using JobRunner with a list of options:__
 
 ```
 const myJobs = new JobRunner(
@@ -29,17 +31,40 @@ const myJobs = new JobRunner(
     'ls',
     'ls',
     'ls'
-    ],
+  ],
   [
-    { cwd: '/home/user/foldera' },
-    { cwd: '/home/user/folderb' },
-    { cwd: '/home/user/folderc' },
-    { cwd: '/home/user/folderd' },
-    { cwd: '/home/user/foldere' }
+    { cwd: '/home/user/folder_a' },
+    { cwd: '/home/user/folder_b' },
+    { cwd: '/home/user/folder_c' },
+    { cwd: '/home/user/folder_d' },
+    { cwd: '/home/user/folder_e' }
+  ]
+)
+
+{ results, numSuccess, numFailed, runTime } = await myJobs.jobRunner()
+```
+
+__Using JobRunner with a splicer:__
+```
+const myJobs = new JobRunner(
+  [
+    'ls $PATH_A',
+    'ls $PATH_B',
+    'ls $PATH_C',
+    'ls $PATH_D',
+    'ls $PATH_E'
     ]
   )
 
-{ results, numSuccess, numFailed, runTime } = await myJobs.jobRunner()
+{ results, numSuccess, numFailed, runTime } = await myJobs.jobRunner(
+  [
+    { var: '$PATH_A', val: '/home/user/folder_a' },
+    { var: '$PATH_B', val: '/home/user/folder_b' },
+    { var: '$PATH_C', val: '/home/user/folder_c' },
+    { var: '$PATH_D', val: '/home/user/folder_d' },
+    { var: '$PATH_E', val: '/home/user/folder_e' }
+  ]
+)
 ```
 
 # Changelog
