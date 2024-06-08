@@ -36,8 +36,7 @@
     "README.md"
   ],
   "dependencies": {
-    "@spongex/async-resolver": "^1.0.1",
-    "@spongex/system-locale": "^1.0.0"
+    "@spongex/async-resolver": "^1.0.1"
   },
   "devDependencies": {
     "@types/node": "^20.14.2",

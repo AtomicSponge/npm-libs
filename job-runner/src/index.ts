@@ -6,8 +6,6 @@
  */
 
 import { exec, type ExecOptions } from 'node:child_process'
-
-import { __locale } from '@spongex/system-locale'
 import { AsyncResolver } from '@spongex/async-resolver'
 
 /** Resolution of a {@link jobRunner} command */
