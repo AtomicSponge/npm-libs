@@ -38,21 +38,10 @@ interface RunResults {
 
 /** Splicer object */
 interface Splicer {
-  /** Variable for splaicer */
+  /** Variable to match replacements with */
   var:string,
   /** List of values to replace variable with */
-  vals:Array<string>
-}
-
-/**
- * Splicer for the {@link jobRunner} function
- * This replaces variables with values in the commands
- */
-interface JobRunnerSplicer {
-  (
-    /** List of {@link Splicer} objects */
-    splice:Array<Splicer>
-  ):void
+  val:string
 }
 
 /** Callback for the {@link jobRunner} function */
@@ -102,30 +91,40 @@ export class JobRunner {
 
   /**
    * Run the group of loaded jobs
-   * @partam callback Callback function that is passed an {@link CmdRes} object
+   * @param splicers A list of {@link Splicer} objects to modify the command with
+   * @param callback Callback function that is passed an {@link CmdRes} object
    * and the error from exec if any - runs after each command
    * @returns A {@link RunResults} object with the count of successful and
    * failed runs, also an array of the results
    */
-  jobRunner = async (splicer?:JobRunnerSplicer, callback?:JobRunnerCallback):Promise<RunResults> => {
+  jobRunner = async (splicers?:Array<Splicer>, callback?:JobRunnerCallback):Promise<RunResults> => {
     this.#goodRes = 0
     this.#badRes = 0
     this.#runTime = 0
 
     const startTime = performance.now()
     this.#cmds.forEach((cmd:string) => {
+      //  Modify the command using any provided splicers
+      splicers?.forEach((splice:Splicer) => {
+        cmd = cmd.replaceAll(splice.var, splice.val)
+      })
+
+      //  Create a new Resolver for the cmd
       this.#jobPromises.push(new AsyncResolver())
       const jobIDX = this.#jobPromises.length - 1
 
+      //  Determine options for the cmd
       let opt
       if(this.#opts.length === 1) opt = this.#opts[0]
       else opt = this.#opts[jobIDX] || null
 
+      //  Run cmd & process
       const cmdStart = performance.now()
       exec(cmd, opt, (error:any, stdout:string, stderr:string) => {
         const cmdStop = performance.now()
         let cmdRes
         if(error) {
+          //  Cmd resulted in error
           cmdRes = {
             command: cmd,
             duration: cmdStop - cmdStart,
@@ -136,6 +135,7 @@ export class JobRunner {
           this.#badRes++; this.#jobResults.push(cmdRes)
           this.#jobPromises[jobIDX].reject()
         } else {
+          //  Cmd success
           cmdRes = {
             command: cmd,
             duration: cmdStop - cmdStart,
@@ -146,9 +146,11 @@ export class JobRunner {
           this.#goodRes++; this.#jobResults.push(cmdRes)
           this.#jobPromises[jobIDX].resolve()
         }
+        //  Run callback on cmd results if provided
         if(callback !== undefined) callback(cmdRes, error)
       })
     })
+    //  Await all results and return stats of all jobs
     await Promise.allSettled(this.#jobPromises)
     const endTime = performance.now()
     this.#runTime = endTime - startTime
