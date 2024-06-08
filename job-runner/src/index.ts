@@ -45,10 +45,10 @@ interface Splicer {
 /** Callback for the {@link jobRunner} function */
 interface JobRunnerCallback {
   (
-    /** Result of the command */
-    result:CmdRes,
     /** Error from exec if any */
-    error?:any
+    error:any,
+    /** Result of the command */
+    result:CmdRes
   ):void
 }
 
@@ -145,7 +145,7 @@ export class JobRunner {
           this.#jobPromises[jobIDX].resolve()
         }
         //  Run callback on cmd results if provided
-        if(callback !== undefined) callback(cmdRes, error)
+        if(callback !== undefined) callback(error, cmdRes)
       })
     })
     //  Await all results and return stats of all jobs
