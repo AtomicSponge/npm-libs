@@ -18,6 +18,11 @@ Check a GitHub Releases via the API and parse download links
 
 <sub>[link](https://github.com/AtomicSponge/npm-libs/tree/master/check-github-releases)</sub>
 
+## job-runner
+Run multiple processes simultaneously easily with one class!
+
+<sub>[link](https://github.com/AtomicSponge/npm-libs/tree/master/job-runner)</sub>
+
 ## os-appdata-path
 Get application storage location based on operating system
 
