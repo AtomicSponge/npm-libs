@@ -45,7 +45,7 @@ This `result` object has the following format:
 - `stdout`: The output of the job
 - `stderr`: The error output of the job
 
-## Examples
+# Examples
 
 __Using JobRunner with a list of options:__
 
