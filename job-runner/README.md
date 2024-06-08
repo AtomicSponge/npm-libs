@@ -36,7 +36,7 @@ The `runAllJobs` member function has the following signature:
 `splicers` is an optional array of variables and values to be replaced in the commands.
 See the examples below for a demonstration of its usage.
 
-The `callback` function is an optional function that will be called after the results of *each* command.  The function is passed two parameters, an `error` object created by the command if any, and a `RunResults` object representing the result information of the command.
+The `callback` function is an optional function that will be called after the results of *each* command.  The function is passed two parameters, an `error` object created by [exec](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) if any, and a `RunResults` object representing the result information of the command.
 
 This `RunResults` object has the following format:
 - `results`: An array of `PromiseSettledResult`
