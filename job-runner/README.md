@@ -26,9 +26,9 @@ The `JobRunner constructor` has the following signature:
 
 `ExecOptions` is the same format as what [exec](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) is passed.
 
------
+---
 
-The `runAllJobs` function has the following signature:
+The `runAllJobs` member function has the following signature:
 ### runAllJobs: async (splicers?: Array<Splicer>, callback?: JobRunnerCallback) => Promise<RunResults>
 
 `splicers` is an optional array of variables and values to be replaced in the commands.
