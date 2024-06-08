@@ -19,7 +19,7 @@ const { JobRunner } = require('@spongex/job-runner')
 
 # Usage
 
-__job-runner__ works by first constructing a new object and passing it a list of commands to be ran.  Then calling its member function `runAllJobs` to process.
+__job-runner__ works by first constructing a new object and passing it a list of commands to be ran, then calling its member function `runAllJobs` to process.
 
 The `JobRunner` constructor has the following signature:
 ### JobRunner: (cmds: Array<string>, opts?: Array<ExecOptions>) => void
