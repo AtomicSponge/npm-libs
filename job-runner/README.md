@@ -19,6 +19,13 @@ const { JobRunner } = require('@spongex/job-runner')
 
 # Usage
 
+The `JobRunner constructor` has the following signature:
+### JobRunner: (cmds: Array<string>, opts?: Array<ExecOptions>) => void
+
+`cmds` is a list of the commands to be passed to [exec](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback)
+
+Please note that `ExecOptions` is the same format as what [exec](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) is passed.
+
 The `runAllJobs` function has the following signature:
 ### runAllJobs: async (splicers?: Array<Splicer>, callback?: JobRunnerCallback) => Promise<RunResults>
 
