@@ -56,18 +56,10 @@ interface JobRunnerCallback {
 export class JobRunner {
   /** Collection of job promises */
   #jobPromises:Array<AsyncResolver> = []
-  /** Collection of the results of all jobs */
-  #jobResults:Array<CmdRes> = []
   /** Collection of commands to be processed */
   #cmds:Array<string> = []
   /** Collection of options for commands */
   #opts:Array<ExecOptions> = []
-  /** Number of successful results */
-  #goodRes = 0
-  /** Number of failed results */
-  #badRes = 0
-  /** Total run time for all jobs */
-  #runTime = 0
 
   /**
    * Create a new JobRunner class
@@ -96,9 +88,9 @@ export class JobRunner {
    * failed runs, also an array of the results
    */
   runAllJobs = async (splicers?:Array<Splicer>, callback?:JobRunnerCallback):Promise<RunResults> => {
-    this.#goodRes = 0
-    this.#badRes = 0
-    this.#runTime = 0
+    let goodRes = 0
+    let badRes = 0
+    let runTime = 0
 
     const startTime = performance.now()
     this.#cmds.forEach((cmd:string) => {
@@ -130,8 +122,8 @@ export class JobRunner {
             stdout: stdout,
             stderr: stderr
           }
-          this.#badRes++; this.#jobResults.push(cmdRes)
-          this.#jobPromises[jobIDX].reject()
+          badRes++
+          this.#jobPromises[jobIDX].reject(cmdRes)
         } else {
           //  Cmd success
           cmdRes = {
@@ -141,22 +133,30 @@ export class JobRunner {
             stdout: stdout,
             stderr: stderr
           }
-          this.#goodRes++; this.#jobResults.push(cmdRes)
-          this.#jobPromises[jobIDX].resolve()
+          goodRes++
+          this.#jobPromises[jobIDX].resolve(cmdRes)
         }
         //  Run callback on cmd results if provided
         if(callback !== undefined) callback(error, cmdRes)
       })
     })
     //  Await all results and return stats of all jobs
-    await Promise.allSettled(this.#jobPromises)
+    const finishedJobs:Array<Promise<CmdRes>> = []
+    this.#jobPromises.forEach(job => { finishedJobs.push(job.promise) })
+    const res = await Promise.allSettled(finishedJobs)
+
+    let cmdResults:Array<CmdRes> = []
+    res.forEach(result => {
+      //
+    })
+
     const endTime = performance.now()
-    this.#runTime = endTime - startTime
+    runTime = endTime - startTime
     return {
-      results: this.#jobResults,
-      numSuccess: this.#goodRes,
-      numFailed: this.#badRes,
-      runTime: this.#runTime
+      results: cmdResults,
+      numSuccess: goodRes,
+      numFailed: badRes,
+      runTime: runTime
     }
   }
 }
