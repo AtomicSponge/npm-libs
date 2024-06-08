@@ -24,7 +24,7 @@ The `JobRunner constructor` has the following signature:
 
 `cmds` is a list of the commands to be passed to [exec](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback)
 
-Please note that `ExecOptions` is the same format as what [exec](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) is passed.
+`ExecOptions` is the same format as what [exec](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) is passed.
 
 -----
 
