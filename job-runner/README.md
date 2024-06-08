@@ -22,7 +22,7 @@ const { JobRunner } = require('@spongex/job-runner')
 __job-runner__ works by first constructing a new object and passing it a list of commands to be ran, then calling its member function `runAllJobs` to process.
 
 The `JobRunner` constructor has the following signature:
-### JobRunner: (cmds: Array<string>, opts?: Array<ExecOptions>) => void
+### JobRunner: (cmds: Array\<string>, opts?: Array\<ExecOptions>) => void
 
 `cmds` is a list of the commands to be passed to [exec](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback)
 
@@ -31,7 +31,7 @@ The `JobRunner` constructor has the following signature:
 ---
 
 The `runAllJobs` member function has the following signature:
-### runAllJobs: async (splicers?: Array<Splicer>, callback?: JobRunnerCallback) => Promise\<RunResults>
+### runAllJobs: async (splicers?: Array\<Splicer>, callback?: JobRunnerCallback) => Promise\<RunResults>
 
 `splicers` is an optional array of variables and values to be replaced in the commands.
 See the examples below for a demonstration of its usage.
