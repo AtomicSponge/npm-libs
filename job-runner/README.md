@@ -65,7 +65,7 @@ const myJobs = new JobRunner(
   ]
 )
 
-{ results, numSuccess, numFailed, runTime } = await myJobs.runAllJobs()
+const { results, numSuccess, numFailed, runTime } = await myJobs.runAllJobs()
 ```
 
 __Using JobRunner with a splicer:__
@@ -80,7 +80,7 @@ const myJobs = new JobRunner(
     ]
   )
 
-{ results, numSuccess, numFailed, runTime } = await myJobs.runAllJobs(
+const { results, numSuccess, numFailed, runTime } = await myJobs.runAllJobs(
   [
     { var: '$PATH_A', val: '/home/user/folder_a' },
     { var: '$PATH_B', val: '/home/user/folder_b' },
