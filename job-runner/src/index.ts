@@ -14,6 +14,8 @@ interface CmdRes {
   command:string
   /** Duration of the job */
   duration:number
+  /** Error if any were thrown by exec */
+  error:any
   /** Status code */
   code:number
   /** stdout buffer */
@@ -25,7 +27,7 @@ interface CmdRes {
 /** Return type of {@link jobRunner} */
 interface RunResults {
   /** Results */
-  results:Array<{status:string,reason:CmdRes}>
+  results:Array<PromiseSettledResult<CmdRes>>
   /** Total run time for all jobs */
   runTime:number
   /** Count of successful jobs */
@@ -114,10 +116,10 @@ export class JobRunner {
         let cmdRes
         if(error) {
           //  Cmd resulted in error
-          if(stderr === '') stderr = error
           cmdRes = {
             command: cmd,
             duration: cmdStop - cmdStart,
+            error: error,
             code: error.code,
             stdout: stdout,
             stderr: stderr
@@ -129,6 +131,7 @@ export class JobRunner {
           cmdRes = {
             command: cmd,
             duration: cmdStop - cmdStart,
+            error: error,
             code: 0,
             stdout: stdout,
             stderr: stderr
@@ -143,13 +146,11 @@ export class JobRunner {
     //  Await all results and return stats of all jobs
     const finishedJobs:Array<Promise<CmdRes>> = []
     this.#jobPromises.forEach(job => { finishedJobs.push(job.promise) })
-    const res = await Promise.allSettled(finishedJobs)
+    const results = await Promise.allSettled(finishedJobs)
     const endTime = performance.now()
-    let cmdResults:any = []
-    res.forEach(result => { cmdResults.push(result) })
 
     return {
-      results: cmdResults,
+      results: results,
       runTime: endTime - startTime,
       numSuccess: goodRes,
       numFailed: badRes
