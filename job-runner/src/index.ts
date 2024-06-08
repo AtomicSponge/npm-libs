@@ -25,13 +25,13 @@ interface CmdRes {
 /** Return type of {@link jobRunner} */
 interface RunResults {
   /** Results */
-  results:Array<CmdRes>
+  results:Array<{status:string,reason:CmdRes}>
+  /** Total run time for all jobs */
+  runTime:number
   /** Count of successful jobs */
   numSuccess:number
   /** Count of failed jobs */
   numFailed:number
-  /** Total run time for all jobs */
-  runTime:number
 }
 
 /** Splicer object for the {@link jobRunner} function */
@@ -114,7 +114,7 @@ export class JobRunner {
         let cmdRes
         if(error) {
           //  Cmd resulted in error
-          console.log(error)
+          if(stderr === '') stderr = error
           cmdRes = {
             command: cmd,
             duration: cmdStop - cmdStart,
@@ -150,9 +150,9 @@ export class JobRunner {
 
     return {
       results: cmdResults,
+      runTime: endTime - startTime,
       numSuccess: goodRes,
-      numFailed: badRes,
-      runTime: endTime - startTime
+      numFailed: badRes
     }
   }
 }
