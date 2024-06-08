@@ -36,14 +36,25 @@ The `runAllJobs` member function has the following signature:
 `splicers` is an optional array of variables and values to be replaced in the commands.
 See the examples below for a demonstration of its usage.
 
-The `callback` function is an optional function that will be called after the results of *each* command.  The function is passed two parameters, an `error` object created by the command if any, and a `result` object representing the result information of the command.
+The `callback` function is an optional function that will be called after the results of *each* command.  The function is passed two parameters, an `error` object created by the command if any, and a `RunResults` object representing the result information of the command.
 
-This `result` object has the following format:
+This `RunResults` object has the following format:
+- `results`: An array of `PromiseSettledResult`
+- `runTime`: Total run time for all jobs in milliseconds
+- `numSuccess`: Count of successful jobs
+- `numFailed`: Count of failed jobs
+
+For `PromiseSettledResult` this contains a `status` property and a property that is *either* `value` or `reason`.  `value` is only present if `status` is equal to `"fulfilled"` while `reason` will be present when `status` is equal to `"rejected"`
+
+However, both `value` and `reason` will be an object that has the following format:
 - `command`:  The command which was used for the job
 - `duration`: The duration of the job in milliseconds
+- `error`: The error thrown by `exec` if any
 - `code`: The exit code of the job
 - `stdout`: The output of the job
 - `stderr`: The error output of the job
+
+See the documentation on [Promise.allSettled](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled#return_value) for any additional information.
 
 # Examples
 
