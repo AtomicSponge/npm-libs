@@ -95,7 +95,7 @@ export class JobRunner {
    * @returns A {@link RunResults} object with the count of successful and
    * failed runs, also an array of the results
    */
-  jobRunner = async (splicers?:Array<Splicer>, callback?:JobRunnerCallback):Promise<RunResults> => {
+  runAllJobs = async (splicers?:Array<Splicer>, callback?:JobRunnerCallback):Promise<RunResults> => {
     this.#goodRes = 0
     this.#badRes = 0
     this.#runTime = 0
