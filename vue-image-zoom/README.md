@@ -33,8 +33,9 @@ const { ImageZoom } = require('@spongex/vue-image-zoom')
 
 # Changelog
 
-## Development release
+## 1.1.1
  - Bumped dependencies
+ - Updated Vue requirements to only ^3.0.0
 
 ## 1.1.0
 - Fixed maintaining aspect ratio when zooming in.
