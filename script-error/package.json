@@ -1,6 +1,6 @@
 {
   "name": "@spongex/script-error",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Function for handling script errors",
   "author": "Matthew Evans",
   "license": "MIT",
@@ -38,7 +38,7 @@
     "README.md"
   ],
   "devDependencies": {
-    "@types/node": "^20.12.12",
+    "@types/node": "^20.14.2",
     "typescript": "^5.4.5",
     "unbuild": "^2.0.0"
   }

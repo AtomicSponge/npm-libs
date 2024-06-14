@@ -49,6 +49,9 @@ if(__os_appdata_path !== null) {
 
 # Changelog
 
+## 0.2.2
+- Dependencies bump
+
 ## 0.2.1
 - README fix
 - Dependencies bump
