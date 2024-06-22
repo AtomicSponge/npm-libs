@@ -50,6 +50,3 @@ onUpdated(() => {
 <template>
   <canvas ref="canvas" :width="canvasWidth" :height="canvasHeight"></canvas>
 </template>
-
-<style scoped>
-</style>
