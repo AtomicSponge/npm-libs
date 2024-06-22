@@ -9,7 +9,9 @@ const canvasHeight = ref(16)
 const props = defineProps<{
   message:Array<number>
   size:number
+  padding?:number
   fontFace?:string
+  fontColor?:string
 }>()
 
 /**
@@ -17,14 +19,20 @@ const props = defineProps<{
  * @param ctx Canvas to draw to
  */
 const drawText = (ctx:CanvasRenderingContext2D) => {
-  ctx.fillStyle = 'white'
+  //  Default to Arial and not inherit to prevent rendering issues
   ctx.font = `${props.size}px ${props.fontFace || 'Arial'}`
-  const textSize = ctx.measureText(String.fromCharCode(...props.message))
-  canvasWidth.value = textSize.width + 4
-  ctx.fillStyle = 'white'
-  ctx.font = `${props.size}px ${props.fontFace || 'Arial'}`
-  ctx.textBaseline = 'middle'
-  ctx.fillText(String.fromCharCode(...props.message), 2, (props.size / 2) + 2)
+  const { width, actualBoundingBoxAscent, actualBoundingBoxDescent } = ctx.measureText(String.fromCharCode(...props.message))
+  canvasWidth.value = width + (props.padding || 8)
+  const height = actualBoundingBoxAscent - actualBoundingBoxDescent
+  canvasHeight.value = height + (props.padding || 8)
+  ctx.fillStyle = props.fontColor || 'white'
+  ctx.font = `${props.size}px ${props.fontFace || 'inherit'}`
+  ctx.textAlign = 'center'
+  ctx.fillText(
+    String.fromCharCode(...props.message),
+    canvasWidth.value / 2,
+    canvasHeight.value / 2 + height / 2
+  )
 }
 
 onMounted(() => {

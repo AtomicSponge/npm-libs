@@ -3,11 +3,16 @@ import EncodedMessage from './components/EncodedMessage.vue'
 </script>
 
 <template>
-  <EncodedMessage class="message" :message="[189, 43, 190, 61]" :size="32"/>
+  <EncodedMessage
+    class="message"
+    :message="[189, 43, 190, 61]"
+    font-color="yellow"
+    :padding="32"
+    :size="92"/>
 </template>
 
 <style scoped>
 .message {
-  border: 1px solid #ffffff;
+  border: 1px solid #ff00ff;
 }
 </style>
