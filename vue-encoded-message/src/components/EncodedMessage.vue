@@ -43,5 +43,5 @@ onUpdated(() => {
   <canvas ref="canvas" :width="canvasWidth" :height="canvasHeight"></canvas>
 </template>
 
-<style lang="stylus" scoped>
+<style scoped>
 </style>

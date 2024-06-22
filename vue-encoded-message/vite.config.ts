@@ -1,13 +1,12 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 
 const LIBRARY_NAME = 'vue-encoded-message'
 
 export default defineConfig({
   plugins: [
-    vue(), cssInjectedByJsPlugin(),
+    vue(),
     dts({ insertTypesEntry: true, rollupTypes: true }),
   ],
   build: {
