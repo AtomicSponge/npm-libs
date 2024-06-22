@@ -1,0 +1,11 @@
+.gitignore
+
+node_modules
+src
+
+package-lock.json
+tsconfig.json
+tsconfig.app.json
+tsconfig.node.json
+tsconfig.json
+vite.config.ts
