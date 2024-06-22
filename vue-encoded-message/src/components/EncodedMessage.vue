@@ -3,8 +3,8 @@ import { ref, onMounted, onUpdated } from 'vue'
 
 const canvas = ref()
 
-const canvasWidth = ref()
-const canvasHeight = ref()
+const canvasWidth = ref(0)
+const canvasHeight = ref(0)
 
 const props = defineProps<{
   message:Array<number>
@@ -36,7 +36,6 @@ const drawText = (ctx:CanvasRenderingContext2D) => {
 }
 
 onMounted(() => {
-  canvasHeight.value = props.size
   //  Draw on load
   drawText(canvas.value.getContext('2d'))
 })
