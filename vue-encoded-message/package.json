@@ -1,0 +1,57 @@
+{
+  "name": "vue-encoded-message",
+  "version": "1.0.0",
+  "description": "WTGui - Experimental Menu System",
+  "author": "Matthew Evans",
+  "license": "MIT",
+  "url": "https://www.npmjs.com/package/@spongex/vue-encoded-message",
+  "homepage": "https://github.com/AtomicSponge/npm-libs#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomicSponge/npm-libs.git",
+    "directory": "vue-encoded-message"
+  },
+  "keywords": [
+    "",
+    "Vue",
+    "Vuejs",
+    "Vue3"
+  ],
+  "bugs": {
+    "url": "https://github.com/AtomicSponge/wtgui/issues"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "prepublishOnly": "vue-tsc && vite build"
+  },
+  "type": "module",
+  "main": "./dist/vue-encoded-message.umd.js",
+  "module": "./dist/vue-encoded-message.es.js",
+  "exports": {
+    ".": {
+      "types": "./dist/vue-encoded-message.d.ts",
+      "import": "./dist/vue-encoded-message.es.js",
+      "require": "./dist/vue-encoded-message.umd.js"
+    }
+  },
+  "files": [
+    "./dist",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "stylus": "^0.63.0",
+    "typescript": "^5.5.2",
+    "vite": "^5.3.1",
+    "vite-plugin-css-injected-by-js": "^3.5.1",
+    "vite-plugin-dts": "^3.9.1",
+    "vue": "^3.4.30",
+    "vue-tsc": "^2.0.22"
+  }
+}
