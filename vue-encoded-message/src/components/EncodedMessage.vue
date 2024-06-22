@@ -21,7 +21,12 @@ const props = defineProps<{
 const drawText = (ctx:CanvasRenderingContext2D) => {
   //  Default to Arial and not inherit to prevent rendering issues
   ctx.font = `${props.size}px ${props.fontFace || 'Arial'}`
-  const { width, actualBoundingBoxAscent, actualBoundingBoxDescent } = ctx.measureText(String.fromCharCode(...props.message))
+  const {
+    width,
+    actualBoundingBoxAscent,
+    actualBoundingBoxDescent
+  } = ctx.measureText(String.fromCharCode(...props.message))
+
   canvasWidth.value = width + (props.padding || 8)
   const height = actualBoundingBoxAscent - actualBoundingBoxDescent
   canvasHeight.value = height + (props.padding || 8)
