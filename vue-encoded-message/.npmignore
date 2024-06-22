@@ -9,3 +9,6 @@ tsconfig.app.json
 tsconfig.node.json
 tsconfig.json
 vite.config.ts
+tsconfig.node.tsbuildinfo
+vite.config.d.ts
+vite.config.js
