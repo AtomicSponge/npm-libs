@@ -3,8 +3,8 @@ import { ref, onMounted, onUpdated } from 'vue'
 
 const canvas = ref()
 
-const canvasWidth = ref(100)
-const canvasHeight = ref(16)
+const canvasWidth = ref()
+const canvasHeight = ref()
 
 const props = defineProps<{
   message:Array<number>
