@@ -4,11 +4,11 @@ import EncodedMessage from './components/EncodedMessage.vue'
 
 <template>
   <EncodedMessage
-    class="message"
     :message="[189, 43, 190, 61]"
+    :size="92"
+    class="message"
     font-color="yellow"
-    :padding="32"
-    :size="92"/>
+    :padding="32"/>
 </template>
 
 <style scoped>
