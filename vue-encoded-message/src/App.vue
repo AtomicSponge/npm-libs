@@ -13,6 +13,7 @@ import EncodedMessage from './components/EncodedMessage.vue'
 
 <style scoped>
 .message {
-  border: 1px solid #ff00ff;
+  border: 3px solid #ff00ff;
+  border-radius: 16px;
 }
 </style>
