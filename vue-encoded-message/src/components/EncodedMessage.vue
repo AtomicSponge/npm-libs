@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted, onUpdated } from 'vue'
 
+/** Reference to the canvas iteself */
 const canvas = ref()
-
+/** Reference to canvas width */
 const canvasWidth = ref(0)
+/** Reference to canvas height */
 const canvasHeight = ref(0)
 
 const props = defineProps<{
