@@ -27,9 +27,12 @@ const drawText = (ctx:CanvasRenderingContext2D) => {
     actualBoundingBoxDescent
   } = ctx.measureText(String.fromCharCode(...props.message))
 
+  //  Calc width and height
   canvasWidth.value = width + (props.padding || 0)
   const height = actualBoundingBoxAscent - actualBoundingBoxDescent
   canvasHeight.value = height + (props.padding || 0)
+
+  //  Perform the drawing
   ctx.fillStyle = props.fontColor || 'white'
   ctx.font = `${props.size}px ${props.fontFace || 'inherit'}`
   ctx.textAlign = 'center'
