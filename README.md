@@ -43,6 +43,11 @@ Get the System Locale
 
 <sub>[link](https://github.com/AtomicSponge/npm-libs/tree/master/system-locale)</sub>
 
+## vue-encoded-message
+Vue3 component for displaying an encoded message.
+
+<sub>[link](https://github.com/AtomicSponge/npm-libs/tree/master/vue-encoded-message)</sub>
+
 ## vue-image-zoom
 Vue3 Component for click to zoom on images
 
