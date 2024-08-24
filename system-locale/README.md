@@ -29,5 +29,8 @@ Example output:  `en-US`
 
 # Changelog
 
+## 1.0.1
+- Dependencies bump
+
 ## 1.0.0
 - Initial release
