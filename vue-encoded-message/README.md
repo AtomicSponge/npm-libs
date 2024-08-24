@@ -30,5 +30,8 @@ const { EncodedMessage } = require('@spongex/vue-encoded-message')
 
 # Changelog
 
+## 1.0.1
+- Dependencies bump
+
 ## 1.0.0
 - Initial release

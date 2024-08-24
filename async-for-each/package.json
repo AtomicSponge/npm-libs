@@ -1,6 +1,6 @@
 {
   "name": "@spongex/async-for-each",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Async version of forEach",
   "author": "Matthew Evans",
   "license": "MIT",

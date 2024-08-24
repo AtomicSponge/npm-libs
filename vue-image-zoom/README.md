@@ -33,6 +33,9 @@ const { ImageZoom } = require('@spongex/vue-image-zoom')
 
 # Changelog
 
+## 1.1.2
+- Dependencies bump
+
 ## 1.1.1
  - Bumped dependencies
  - Updated Vue requirements to only ^3.0.0

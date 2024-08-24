@@ -45,6 +45,9 @@ myResolver.reject('This was rejected')
 
 # Changelog
 
+## 1.0.2
+- Dependencies bump
+
 ## 1.0.1
 - README fix
 

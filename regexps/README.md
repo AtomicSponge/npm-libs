@@ -77,6 +77,9 @@ const res = validHex('0f9dacdc')
 
 # Changelog
 
+## 1.1.1
+- Dependencies bump
+
 ## 1.1.0
 - Added two new functions `replaceNewlines` and `validHex`
 

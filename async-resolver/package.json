@@ -1,6 +1,6 @@
 {
   "name": "@spongex/async-resolver",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Await for asynchronous data",
   "author": "Matthew Evans",
   "license": "MIT",

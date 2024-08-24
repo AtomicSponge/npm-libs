@@ -34,6 +34,9 @@ asyncForEach(collection, async (item) => {
 
 # Changelog
 
+## 1.0.2
+- Dependencies bump
+
 ## 1.0.1
 - Comment error, quick fix
 
