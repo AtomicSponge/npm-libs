@@ -28,6 +28,11 @@ Get application storage location based on operating system
 
 <sub>[link](https://github.com/AtomicSponge/npm-libs/tree/main/os-appdata-path)</sub>
 
+## pause
+Pause for an amount of time in miliseconds
+
+<sub>[link](https://github.com/AtomicSponge/npm-libs/tree/main/pause)</sub>
+
 ## regexps
 Collection of regex tests
 
