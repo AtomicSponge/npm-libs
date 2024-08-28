@@ -12,7 +12,10 @@
   "url": "https://www.npmjs.com/package/@spongex/delay-pause",
   "homepage": "https://github.com/AtomicSponge/npm-libs#readme",
   "keywords": [
-    "delay-pause"
+    "delay-pause",
+    "timer",
+    "wait",
+    "suspend"
   ],
   "bugs": {
     "url": "https://github.com/AtomicSponge/npm-libs/issues"

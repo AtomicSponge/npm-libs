@@ -12,7 +12,10 @@
   "url": "https://www.npmjs.com/package/@spongex/pause",
   "homepage": "https://github.com/AtomicSponge/npm-libs#readme",
   "keywords": [
-    "pause"
+    "pause",
+    "timer",
+    "wait",
+    "suspend"
   ],
   "bugs": {
     "url": "https://github.com/AtomicSponge/npm-libs/issues"
