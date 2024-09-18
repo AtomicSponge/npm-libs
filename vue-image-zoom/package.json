@@ -44,13 +44,13 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.1.2",
+    "@vitejs/plugin-vue": "^5.1.4",
     "stylus": "^0.63.0",
     "stylus-loader": "^8.1.0",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.2",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.6",
     "vite-plugin-css-injected-by-js": "^3.5.1",
-    "vite-plugin-dts": "^4.0.3",
-    "vue": "^3.4.38"
+    "vite-plugin-dts": "^4.2.1",
+    "vue": "^3.5.6"
   }
 }
